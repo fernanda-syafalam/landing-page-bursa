@@ -1,9 +1,16 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  eslint: {
-    // Warning: Dangerously allow production builds to deliberately bypass `next lint`.
+  output: 'standalone',
+  reactStrictMode: true,
+  poweredByHeader: false, // sembunyikan header "X-Powered-By"
+  images: {
+    domains: ['cdn.example.com'], // whitelist domain gambar
+    formats: ['image/avif', 'image/webp'] // format modern
   },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production'
+  }
 };
 
 export default nextConfig;
