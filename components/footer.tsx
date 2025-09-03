@@ -1,9 +1,9 @@
-import { Facebook, Instagram, Linkedin, Mail, Phone, Twitter } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { AiFillInstagram } from 'react-icons/ai';
-import { FaFacebookF, FaLinkedinIn, FaSquareInstagram, FaXTwitter } from 'react-icons/fa6';
+import { FaFacebookF, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
 
 const FooterSection = () => {
   const navigation = [
