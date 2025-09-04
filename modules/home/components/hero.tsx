@@ -9,14 +9,14 @@ export function HeroSection() {
     <div className="relative flex min-h-screen w-full flex-col overflow-hidden text-white bg-background">
       <BackgroundRippleEffect rows={9} cols={28} cellSize={78} />
 
-      <div className="container mx-auto relative mt-[230px] w-full flex items-center align-center ">
+      <div className="container mx-auto relative mt-60 w-full flex items-center align-center ">
         {/* Left Content */}
-        <div className="flex flex-col gap-6 h-fit relative z-20 max-w-2xl">
+        <div className="flex flex-col gap-6 relative z-20 max-w-2xl">
           <h2 className="text-2xl font-bold md:text-4xl lg:text-5xl">
             Indonesia Global Exchange
           </h2>
 
-          <p className="text-[18px] mt-4 max-w-2xl dark:text-neutral-500">
+          <p className="text-lg mt-4 max-w-2xl dark:text-neutral-500">
             Menyelenggarakan dan menyediakan sistem terpercaya untuk mendukung perdagangan serta pelaporan aset kripto secara aman,
             transparan, dan teratur.
           </p>
@@ -40,13 +40,13 @@ export function HeroSection() {
           alt="hero"
           width={780}
           height={780}
-          className="absolute top-[-55%] right-[-15%] z-15"
+          className="absolute -top-1/2 -right-1/6 z-15"
           priority
         />
       </div>
 
       {/* Count Section - di luar flex atas, biar full width & center */}
-      <div className="relative z-10 h-[255px] w-full bg-background flex items-center justify-center gap-10 mt-10">
+      <div className="relative z-10 h-64 w-full bg-background flex items-center justify-center gap-10 mt-10">
         <div>
           <h1 className="text-5xl font-bold text-center">Rp 24T</h1>
           <p>Volume Transaksi 24 Jam</p>

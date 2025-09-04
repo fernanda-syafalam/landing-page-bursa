@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false, // sembunyikan header "X-Powered-By"
   images: {
-    domains: ['cdn.example.com'], // whitelist domain gambar
     formats: ['image/avif', 'image/webp'] // format modern
   },
   compiler: {
