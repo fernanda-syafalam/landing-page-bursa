@@ -63,7 +63,7 @@ const Navbar = ({ className, items = navItems, lang = 'ID', variant = 'blue' }: 
         className
       )}
     >
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="container-custom flex items-center justify-between">
         <Link href={'/'} className="flex items-center">
           <Image src={`/icons/${styles.icon}`} alt="logo" width={98} height={45} priority />
         </Link>

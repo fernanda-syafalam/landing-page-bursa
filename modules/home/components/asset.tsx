@@ -75,7 +75,7 @@ const coinsUpdate = [
 const AssetSection = () => {
   return (
     <section className="w-full min-h-screen  py-36">
-      <div className="container mx-auto">
+      <div className="container-custom">
         <div className="flex justify-between">
           <h1 className="text-3xl font-semibold">Asset Crypto Terbaru</h1>
           <Button variant="outline" className="bg-white text-black border-black hover:bg-background px-5 hover:text-white">

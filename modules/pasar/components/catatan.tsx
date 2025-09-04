@@ -13,7 +13,7 @@ const listCatatan = [
 const CatatanSection = () => {
   return (
     <section className="w-full text-muted-foreground text-sm my-20">
-      <div className="container mx-auto">
+      <div className="container-custom">
         <p>Catatan:</p>
         <ul>
           {listCatatan.map((item, index) => (

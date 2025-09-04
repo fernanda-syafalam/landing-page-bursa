@@ -9,7 +9,7 @@ export function HeroSection() {
     <div className="relative flex min-h-screen w-full flex-col overflow-hidden text-white bg-background">
       <BackgroundRippleEffect rows={9} cols={28} cellSize={78} />
 
-      <div className="container mx-auto relative mt-60 w-full flex items-center align-center ">
+      <div className="container-custom relative mt-60 w-full flex items-center align-center ">
         {/* Left Content */}
         <div className="flex flex-col gap-6 relative z-20 max-w-2xl">
           <h2 className="text-2xl font-bold md:text-4xl lg:text-5xl">

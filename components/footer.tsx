@@ -46,7 +46,7 @@ const FooterSection = () => {
   return (
     <footer className="w-full bg-[#0b1437] text-white">
       {/* Main Footer */}
-      <div className="container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="container-custom px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Logo & Description */}
         <div>
           <Image src="/logo.png" alt="IGX Logo" width={120} height={40} className="mb-4" />

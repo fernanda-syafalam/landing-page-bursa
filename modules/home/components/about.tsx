@@ -18,7 +18,7 @@ const list = [
 const AboutSection = () => {
   return (
     <section className="w-full min-h-screen  py-24">
-      <div className="container mx-auto flex flex-col md:flex-row gap-12 items-center">
+      <div className="container-custom  flex flex-col md:flex-row gap-12 items-center">
         <div className="flex flex-col justify-start gap-6 flex-1">
           <div className="bg-white px-3 py-1 text-sm rounded-full flex items-center gap-1 w-fit">
             <Dot size={16} strokeWidth={6} absoluteStrokeWidth /> Tentang Kami

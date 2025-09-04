@@ -134,3 +134,8 @@
   }
 }
 
+@layer utilities {
+  .container-custom {
+    @apply mx-auto w-full max-w-[1200px];
+  }
+}

@@ -50,7 +50,7 @@ const News = [
 const NewsSection = () => {
   return (
     <section className="w-full min-h-screen pb-36">
-      <div className="container mx-auto">
+      <div className="container-custom">
         <div className="flex justify-evenly items-center">
           <div className="flex flex-col gap-0">
             <h1 className="text-2xl font-semibold">

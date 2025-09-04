@@ -43,7 +43,7 @@ const MissionSection = () => {
   return (
     <section className="w-full min-h-screen  py-24">
       <div className="w-full h-[400px] bg-no-repeat bg-center bg-cover" style={{ backgroundImage: 'url(mission-bg.png)' }}>
-        <div className="container flex justify-center items-center  flex-col mx-auto px-4 gap-6 ">
+        <div className="container-custom flex justify-center items-center  flex-col  px-4 gap-6 ">
           <div className="">
             <DotText text="Tugas Utama Kami" />
           </div>
