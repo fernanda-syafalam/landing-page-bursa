@@ -16,7 +16,7 @@ const visiMisi = [
 const HeroTentangKami = () => {
   return (
     <section className="w-full min-h-screen">
-      <div className="container mx-auto mt-40 flex flex-col gap-4 justify-center items-center text-center">
+      <div className="container-custom mt-40 flex flex-col gap-4 justify-center items-center text-center">
         <DotText text="Tentang Kami" />
         <h1 className="text-5xl font-bold ">
           Hadir untuk Regulasi, Transparansi, <br /> dan Keamanan Kripto
@@ -26,11 +26,11 @@ const HeroTentangKami = () => {
           berjalan sehat dan terpercaya melalui pengawasan, standar keamanan, serta infrastruktur yang terintegrasi.
         </p>
       </div>
-      <div className="container mx-auto my-24">
+      <div className="container-custom my-24">
         <Image src="/images/about-hero.png" alt="hero-tentang-kami" width={1920} height={1080} />
       </div>
 
-      <div className="container mx-auto my-24 flex gap-20 justify-between items-center">
+      <div className="container-custom my-24 flex gap-20 justify-between items-center">
         {visiMisi.map((item, index) => (
           <div key={index} className="flex flex-col gap-4">
             <h2 className="text-3xl font-semibold">{item.title}</h2>

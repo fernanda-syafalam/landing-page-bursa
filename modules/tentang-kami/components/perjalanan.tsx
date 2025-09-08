@@ -4,8 +4,8 @@ import React from 'react';
 const PerjalananTentangKami = () => {
   return (
     <section className="h-[727px] w-full bg-[#F6F9FF]">
-      <div className="container w-[1200px] h-[587px] p-7 rounded mx-auto grid grid-cols-2  bg-white">
-        <div className="flex flex-col gap-6 ">
+      <div className="container-custom h-[587px] p-7 rounded mx-auto flex gap-3  bg-white">
+        <div className="flex flex-col gap-6 max-w-[463px]">
           <h2 className="text-3xl font-semibold">Tonggak Perjalanan IGX</h2>
           <p className="text-lg text-muted-foreground">
             Setiap tahap mencerminkan dedikasi kami dalam menghadirkan regulasi yang transparan, ekosistem yang aman, serta pertumbuhan
@@ -14,7 +14,7 @@ const PerjalananTentangKami = () => {
         </div>
 
         <div
-          className="w-[653px] bg-no-repeat bg-center bg-cover p-6 flex flex-col justify-between"
+          className="max-w-[653px] bg-no-repeat bg-center bg-cover p-6 flex flex-col justify-between"
           style={{ backgroundImage: 'url(/images/about-perjalanan.png)' }}
         >
           <div className="">

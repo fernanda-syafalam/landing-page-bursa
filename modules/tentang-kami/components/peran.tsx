@@ -4,7 +4,7 @@ import React from 'react';
 const PeranSection = () => {
   return (
     <section className="w-full ">
-      <div className="container mx-auto mt-36 mb-20 flex flex-col gap-5 justify-center items-center">
+      <div className="container-custom mt-36 mb-29 flex flex-col gap-5 justify-center items-center">
         <h1 className='text-3xl font-semibold'>Peran Kami dalam Ekosistem Kripto</h1>
         <div className="flex gap-12 items-center justify-center mt-10">
           {missionItems.map((item, index) => (
