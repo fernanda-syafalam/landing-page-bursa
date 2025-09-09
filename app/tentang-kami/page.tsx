@@ -11,7 +11,6 @@ const TentangKamiPage = () => {
         <Navbar variant="white" />
         <HeroTentangKami />
         <PeranSection />
-        {/* <PerjalananTentangKami /> */}
         <PrinsipSection />
         <FooterSection />
     </>
