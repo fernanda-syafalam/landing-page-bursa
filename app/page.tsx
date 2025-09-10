@@ -10,7 +10,7 @@ import NewsSection from '@/modules/home/components/news';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-primary">
+    <div className="min-h-screen bg-[#fff]">
       <Navbar variant='blue' />
       <HeroSection />
       <AssetSection />

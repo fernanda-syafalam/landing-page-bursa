@@ -41,9 +41,9 @@ const logos = [
 
 const MissionSection = () => {
   return (
-    <section className="w-full min-h-screen  py-24">
-      <div className="w-full h-[400px] bg-no-repeat bg-center bg-cover" style={{ backgroundImage: 'url(mission-bg.png)' }}>
-        <div className="container-custom flex justify-center items-center  flex-col  px-4 gap-6 ">
+    <section className=" w-full min-h-screen  py-24">
+      <div className="relative w-full h-[400px] bg-no-repeat bg-center bg-cover" style={{ backgroundImage: 'url(mission-bg.png)' }}>
+        <div className=" container-custom flex justify-center items-center  flex-col  px-4 gap-6 ">
           <div className="">
             <DotText text="Tugas Utama Kami" />
           </div>
@@ -59,6 +59,21 @@ const MissionSection = () => {
               </div>
             ))}
           </div>
+          <div
+            className="absolute inset-1 bg-no-repeat bg-cover z-10"
+            style={{
+              backgroundImage: "url('/background/tugas.svg')",
+              opacity: 0.6
+            }}
+          ></div>
+          <div
+            className="absolute -right-40 bottom-10 w-[100px] h-[100px] rounded-full z-10"
+            style={{
+              backgroundColor: '#B2CCFF', // biru transparan
+              boxShadow: '0 0 200px 200px #B2CCFF', // glow
+              opacity: 0.5
+            }}
+          ></div>
         </div>
       </div>
 

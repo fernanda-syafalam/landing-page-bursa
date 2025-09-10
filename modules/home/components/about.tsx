@@ -17,12 +17,31 @@ const list = [
 
 const AboutSection = () => {
   return (
-    <section className="w-full min-h-screen  py-24">
-      <div className="container-custom  flex flex-col md:flex-row gap-12 items-center">
+    <section className="relative w-full min-h-screen py-24">
+      {/* Background */}
+      <div
+        className="absolute inset-0 bg-no-repeat bg-cover -left-1/2 top-12 z-10"
+        style={{
+          backgroundImage: "url('/background/tentang.svg')",
+          opacity: 0.5
+        }}
+      ></div>
+
+      <div
+        className="absolute -left-40 -top-32 w-[330px] h-[330px] rounded-full z-10"
+        style={{
+          backgroundColor: '#B2CCFF', // biru transparan
+          boxShadow: '0 0 200px 200px #B2CCFF', // glow
+          opacity: 0.3
+        }}
+      ></div>
+
+      <div className="container-custom flex flex-col md:flex-row gap-12 items-center relative z-10">
         <div className="flex flex-col justify-start gap-6 flex-1">
-          <div className="bg-white px-3 py-1 text-sm rounded-full flex items-center gap-1 w-fit">
+          <div className="bg-white px-3 py-1 text-sm rounded-full flex items-center gap-1 w-fit shadow-sm">
             <Dot size={16} strokeWidth={6} absoluteStrokeWidth /> Tentang Kami
           </div>
+
           <h1 className="text-3xl font-semibold">
             Hadir untuk Regulasi, Transparansi, <br /> dan Keamanan Kripto
           </h1>
@@ -31,12 +50,13 @@ const AboutSection = () => {
             IGX adalah penyelenggara sistem perdagangan dan pelaporan aset kripto di Indonesia. Kami berperan memastikan industri kripto
             berjalan sehat dan terpercaya melalui pengawasan, standar keamanan, serta infrastruktur yang terintegrasi.
           </p>
+
           <div className="flex flex-col gap-2">
             <p>Kami hadir dengan:</p>
             <ul className="flex flex-col gap-2">
               {list.map((item, index) => (
-                <li key={index} className="text-sm max-w-[562px] flex gap-2">
-                  <CheckCircle2 size={20} /> {item.desc}
+                <li key={index} className="text-sm max-w-[562px] flex gap-2 items-start">
+                  <CheckCircle2 size={20} className="text-green-600 mt-1" /> {item.desc}
                 </li>
               ))}
             </ul>

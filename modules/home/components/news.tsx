@@ -49,7 +49,7 @@ const News = [
 
 const NewsSection = () => {
   return (
-    <section className="w-full min-h-screen pb-36">
+    <section className="w-full min-h-screen pb-36" style={{ background: 'linear-gradient(to bottom, #FFFFFF, #EDF3FD, #FAFAFA)' }}>
       <div className="container-custom">
         <div className="flex justify-evenly items-center">
           <div className="flex flex-col gap-0">

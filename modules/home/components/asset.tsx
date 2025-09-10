@@ -74,7 +74,7 @@ const coinsUpdate = [
 
 const AssetSection = () => {
   return (
-    <section className="w-full min-h-screen  py-36">
+    <section className="w-full min-h-screen bg-gradient-to-b from-[#F6F9FF] to-[#F6F9FF00] py-36">
       <div className="container-custom">
         <div className="flex justify-between">
           <h1 className="text-3xl font-semibold">Asset Crypto Terbaru</h1>
@@ -126,7 +126,7 @@ const AssetSection = () => {
         </div>
 
         <div className="mt-10">
-          <Card className="p-4 mb-4 bg-white rounded-sm shadow-2xl/10 ">
+          <Card className="p-4 mb-4 bg-white rounded-lg shadow-2xl/10 ">
             <table className="w-full text-center">
               <thead className="text-muted-foreground text-sm font-light">
                 <tr>
