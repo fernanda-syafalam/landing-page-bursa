@@ -43,7 +43,7 @@ const News = [
 const NewsSection = () => {
   return (
     <section className="w-full min-h-screen pb-20 lg:pb-36" style={{ background: 'linear-gradient(to bottom, #FFFFFF, #EDF3FD, #FAFAFA)' }}>
-      <div className="container-custom">
+      <div className="container-custom px-4 lg:px-0">
         <div className="flex flex-col lg:flex-row lg:justify-between  items-center">
           <div className="flex flex-col gap-0 mx-auto lg:mx-0 text-center lg:text-left">
             <h1 className="text-3xl font-semibold">Update Regulasi</h1>
@@ -78,14 +78,14 @@ const NewsSection = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-6 justify-center items-center mt-36">
+        <div className="flex flex-col gap-6 justify-center items-center mt-36 ">
           <h1 className="font-bold text-2xl">
             Berita Terbaru <span className="text-background">IGX</span>
           </h1>
           <p className="text-muted-foreground">Update terkini seputar regulasi, pasar, dan kegiatan industri aset kripto di Indonesia.</p>
-          <div className="flex flex-col lg:flex-row gap-6">
+          <div className="flex flex-col lg:flex-row gap-6 ">
             {News.map((news, index) => (
-              <div key={index} className="flex flex-col bg-white rounded-md w-96 h-fit shadow">
+              <div key={index} className="flex flex-col bg-white rounded-md lg:w-96 h-fit shadow">
                 <img src={news.image} alt={news.title} className="w-full h-48 object-cover rounded-t-md" />
                 <div className="p-4 flex flex-col gap-4">
                   <p className="text-sm text-gray-500">{news.date}</p>

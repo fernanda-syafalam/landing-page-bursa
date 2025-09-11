@@ -18,7 +18,6 @@ const list = [
 const AboutSection = () => {
   return (
     <section className="relative w-full min-h-screen lg:py-24">
-      {/* Background */}
       <div
         className="absolute inset-0 bg-no-repeat bg-cover -left-1/2 top-12 z-10"
         style={{
@@ -36,7 +35,7 @@ const AboutSection = () => {
         }}
       ></div>
 
-      <div className="container-custom flex flex-col md:flex-row gap-12 items-center relative z-10 mx-4 lg:mx-0">
+      <div className="container-custom px-4 lg:px-0 flex flex-col md:flex-row gap-12 items-center relative z-10 lg:mx-0">
         <div className="flex-1 lg:hidden">
           <Image src="/images/about.png" alt="about" width={587} height={600} />
         </div>
