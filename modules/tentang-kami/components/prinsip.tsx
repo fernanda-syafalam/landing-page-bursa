@@ -70,19 +70,19 @@ const memberProfile = [
 
 const PrinsipSection = () => {
   return (
-    <section className="min-h-screen w-full bg-[linear-gradient(to_bottom,#F6F9FF00,#F0F5FF)] pb-40">
+    <section className="min-h-screen w-full bg-[linear-gradient(to_bottom,#F6F9FF00,#F0F5FF)] pb-20 lg:pb-40">
       {/* Prinsip */}
-      <div className="container-custom flex gap-3 items-center flex-col md:flex-row">
+      <div className="container-custom px-4 lg:px-0 flex gap-3 items-center text-center lg:text-left flex-col md:flex-row">
         <div className="max-w-[485px] h-full flex flex-col justify-center ">
-          <h3 className="text-2xl font-bold">Prinsip Utama</h3>
-          <p className="text-muted-foreground text-lg mt-10">
+          <h3 className="text-3xl font-semibold">Prinsip Utama Kami</h3>
+          <p className="text-muted-foreground text-lg mt-8">
             Kami percaya bahwa sebuah ekosistem kripto yang sehat hanya dapat tercipta dengan berpegang pada nilai-nilai utama berikut
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full md:w-[683px]">
           {prinsipItems.map((item, index) => (
-            <div key={index} className="bg-[#FAFAFA] p-6 rounded-lg border border-[#DFE4EA] flex flex-col gap-2">
+            <div key={index} className="bg-[#DFE4EA] p-6 rounded-lg border border-[#DFE4EA] flex flex-col gap-2">
               <div className="flex items-center gap-2">
                 <item.icon className="h-8 w-8 text-primary" />
                 <h4 className="font-bold text-lg">{item.title}</h4>
@@ -94,12 +94,12 @@ const PrinsipSection = () => {
       </div>
 
       {/* Anggota */}
-      <div className="my-24 container-custom flex flex-col justify-center items-center gap-6">
+      <div className="my-24 px-4 lg:px-0 container-custom flex flex-col justify-center items-center gap-6">
         <h1 className="text-2xl font-bold">Direksi & Komisaris</h1>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
           {memberProfile.map((item, index) => (
-            <div key={index} className="relative group rounded-md h-80 w-72 overflow-hidden shadow-md hover:shadow-lg transition">
+            <div key={index} className="relative group rounded-md h-80 w-full md:w-72 overflow-hidden shadow-md hover:shadow-lg transition">
               {/* Foto */}
               <img src={item.profile} alt={item.name} className="w-full h-full object-cover" />
 
@@ -113,13 +113,16 @@ const PrinsipSection = () => {
         </div>
       </div>
 
-      <div className="container-custom h-62 flex justify-between items-center  text-white px-7 bg-[linear-gradient(272.45deg,#192B4D_0%,#213865_47.77%,#192B4D_100%)] rounded-lg ">
-        <div className=" flex flex-col justify-start gap-4 align-middle">
-          <h1 className="text-3xl">Bergabung & Berkarya Bersama Kami</h1>
-          <p className="text-lg">Jadillah bagian dari perubahan besar di industri keuangan digital.</p>
+      <div className="w-full px-4">
+        <div className="container-custom h-72  lg:h-62 py-8 flex flex-col lg:flex-row justify-between items-center text-center lg:text-left text-white px-7 bg-[linear-gradient(272.45deg,#192B4D_0%,#213865_47.77%,#192B4D_100%)] rounded-lg ">
+          <div className=" flex flex-col justify-start gap-4 align-middle">
+            <h1 className="text-2xl lg:text-3xl">Bergabung & Berkarya Bersama Kami</h1>
+            <p className="text-lg">Jadillah bagian dari perubahan besar di industri keuangan <br /> digital.</p>
+          </div>
+          <Button variant="secondary">Lihat Lowongan</Button>
         </div>
-        <Button variant="secondary">Lihat Lowongan</Button>
       </div>
+
       <div className=""></div>
     </section>
   );

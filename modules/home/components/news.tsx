@@ -20,13 +20,6 @@ const items = [
     type: 'Pemerintah',
     href: '#'
   },
-  {
-    title: 'SK Penetapan Daftar Aset Kripto',
-    date: '13 Agt 2025 18:00:00',
-    icon: FaFileAlt,
-    type: 'Bursa',
-    href: '#'
-  }
 ];
 
 const News = [
@@ -49,40 +42,40 @@ const News = [
 
 const NewsSection = () => {
   return (
-    <section className="w-full min-h-screen pb-36" style={{ background: 'linear-gradient(to bottom, #FFFFFF, #EDF3FD, #FAFAFA)' }}>
+    <section className="w-full min-h-screen pb-20 lg:pb-36" style={{ background: 'linear-gradient(to bottom, #FFFFFF, #EDF3FD, #FAFAFA)' }}>
       <div className="container-custom">
-        <div className="flex justify-evenly items-center">
-          <div className="flex flex-col gap-0">
-            <h1 className="text-2xl font-semibold">
-              Update <br /> Regulasi
-            </h1>
+        <div className="flex flex-col lg:flex-row lg:justify-between  items-center">
+          <div className="flex flex-col gap-0 mx-auto lg:mx-0 text-center lg:text-left">
+            <h1 className="text-3xl font-semibold">Update Regulasi</h1>
             <p className="mt-3 text-muted-foreground">
-              Update terkini seputar regulasi, pasar, <br /> dan kegiatan industri aset kripto di <br /> Indonesia.
+              Update terkini seputar regulasi, pasar,  dan kegiatan industri aset kripto di Indonesia.
             </p>
-            <div className="mt-32">
+            <div className="mt-32 hidden lg:block">
               <Button variant="outline" className="bg-white text-black border-black hover:bg-background px-5 hover:text-white">
                 Lihat Lainnya
               </Button>
             </div>
           </div>
 
-          {items.map((item, index) => (
-            <div key={index} className="flex flex-col justify-between p-8 bg-white rounded-md h-72 w-64 gap-6 shadow items-start">
-              <item.icon className="h-[37px] w-[30px] text-[#213965]" />
-              <div className="">
-                <Badge
-                  variant="secondary"
-                  className={item.type === 'Pemerintah' ? 'bg-[#F6F1D5] text-[#8C7700]' : 'bg-[#E9F1FD] text-[#204B86] '}
-                >
-                  {item.type}
-                </Badge>
-                <p className="text-sm text-gray-500 mt-5 mb-2">{item.date}</p>
-                <Link href={item.href} className="font-semibold text-xl hover:text-background">
-                  {item.title}
-                </Link>
+          <div className="flex justify-end   min-w-2xl lg:w-full gap-5 mt-10 lg:mt-0 mx-4 items-center align-center">
+            {items.map((item, index) => (
+              <div key={index} className="flex flex-col justify-between p-8 bg-white rounded-md h-72  gap-6 shadow items-start">
+                <item.icon className="h-[37px] w-[30px] text-[#213965]" />
+                <div className="">
+                  <Badge
+                    variant="secondary"
+                    className={item.type === 'Pemerintah' ? 'bg-[#F6F1D5] text-[#8C7700]' : 'bg-[#E9F1FD] text-[#204B86] '}
+                  >
+                    {item.type}
+                  </Badge>
+                  <p className="text-sm text-gray-500 mt-5 mb-2">{item.date}</p>
+                  <Link href={item.href} className="font-semibold text-xl hover:text-background">
+                    {item.title}
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         <div className="flex flex-col gap-6 justify-center items-center mt-36">
@@ -90,7 +83,7 @@ const NewsSection = () => {
             Berita Terbaru <span className="text-background">IGX</span>
           </h1>
           <p className="text-muted-foreground">Update terkini seputar regulasi, pasar, dan kegiatan industri aset kripto di Indonesia.</p>
-          <div className="flex gap-6">
+          <div className="flex flex-col lg:flex-row gap-6">
             {News.map((news, index) => (
               <div key={index} className="flex flex-col bg-white rounded-md w-96 h-fit shadow">
                 <img src={news.image} alt={news.title} className="w-full h-48 object-cover rounded-t-md" />

@@ -12,7 +12,7 @@ const listCatatan = [
 
 const CatatanSection = () => {
   return (
-    <section className="w-full text-muted-foreground text-sm my-20">
+    <section className="w-full text-muted-foreground text-sm px-5 lg:px-5 my-20">
       <div className="container-custom">
         <p>Catatan:</p>
         <ul>

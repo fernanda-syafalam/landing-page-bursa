@@ -76,16 +76,16 @@ const AssetSection = () => {
   return (
     <section className="w-full min-h-screen bg-gradient-to-b from-[#F6F9FF] to-[#F6F9FF00] py-36">
       <div className="container-custom">
-        <div className="flex justify-between">
+        <div className="flex justify-center items-center lg:justify-between">
           <h1 className="text-3xl font-semibold">Asset Crypto Terbaru</h1>
-          <Button variant="outline" className="bg-white text-black border-black hover:bg-background px-5 hover:text-white">
+          <Button variant="outline" className="hidden lg:block bg-white text-black border-black hover:bg-background px-5 hover:text-white">
             Lihat Semua Aset
           </Button>
         </div>
 
-        <div className="flex flex-nowrap justify-center gap-5 col-span-12">
+        <div className="flex flex-col lg:flex-row flex-nowrap justify-center gap-5 mt-10 col-span-12">
           {items.map((item, index) => (
-            <div key={index} className="flex flex-col gap-8 basis-1/3 mt-10 h-36  px-6 py-4 rounded-sm bg-white">
+            <div key={index} className="flex flex-col gap-8 basis-1/3 mx-4 lg:mx-0  h-36  px-6 py-4 rounded-sm bg-white">
               <div className="flex justify-between">
                 <div className="flex items-center gap-2">
                   <Avatar className="w-12 h-12">
@@ -109,9 +109,13 @@ const AssetSection = () => {
             </div>
           ))}
         </div>
-
+        <div className="w-full flex justify-center mt-12 lg:hidden">
+          <Button variant="outline" className=" bg-white text-black border-black hover:bg-background px-5 hover:text-white">
+            Lihat Semua Aset
+          </Button>
+        </div>
         <div className="mt-36">
-          <div className="flex justify-between items-center align-baseline">
+          <div className="flex text-center lg:text-left justify-between items-center align-baseline">
             <div className="">
               <h1 className="text-3xl font-semibold">Data Pasar Terkini </h1>
               <p className="text-muted-foreground mt-4">
@@ -119,19 +123,22 @@ const AssetSection = () => {
               </p>
             </div>
 
-            <Button variant="outline" className="bg-white text-black border-black hover:bg-background px-6 hover:text-white">
+            <Button
+              variant="outline"
+              className="hidden lg:block bg-white text-black border-black hover:bg-background px-6 hover:text-white"
+            >
               Selengkapnya
             </Button>
           </div>
         </div>
 
-        <div className="mt-10">
-          <Card className="p-4 mb-4 bg-white rounded-lg shadow-2xl/10 ">
-            <table className="w-full text-center">
-              <thead className="text-muted-foreground text-sm font-light">
+        <div className="mt-10 overflow-x-auto">
+          <Card className="p-4 mb-4 bg-white rounded-lg shadow-2xl/10 mx-4 lg:mx-0 w-fit lg:w-full">
+            <table className="min-w-3xl lg:min-w-full text-center">
+              <thead className="text-muted-foreground text-sm font-light sticky top-0 bg-white">
                 <tr>
                   <th className="px-4 py-4 text-left">Koin</th>
-                  <th className="px-4 py-4 text-right">Harga Terkahir</th>
+                  <th className="px-4 py-4 text-right">Harga Terakhir</th>
                   <th className="px-4 py-4 text-right">Perubahan 24 Jam</th>
                   <th className="px-4 py-4 text-right">Volume 24 Jam</th>
                 </tr>
@@ -167,6 +174,12 @@ const AssetSection = () => {
               </tbody>
             </table>
           </Card>
+
+          <div className="w-full flex justify-center mt-12 lg:hidden">
+            <Button variant="outline" className=" bg-white text-black border-black hover:bg-background px-6 hover:text-white">
+              Selengkapnya
+            </Button>
+          </div>
         </div>
       </div>
     </section>

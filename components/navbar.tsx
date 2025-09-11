@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export interface NavbarItem {
@@ -28,6 +28,7 @@ const navItems = [
 
 const Navbar = ({ className, items = navItems, lang = 'ID', variant = 'blue' }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 80);
@@ -51,7 +52,6 @@ const Navbar = ({ className, items = navItems, lang = 'ID', variant = 'blue' }: 
   };
 
   const currentVariant = variant === 'blue' && isScrolled ? 'white' : variant;
-
   const styles = variantStyle[currentVariant];
 
   return (
@@ -62,12 +62,14 @@ const Navbar = ({ className, items = navItems, lang = 'ID', variant = 'blue' }: 
         className
       )}
     >
-      <div className="container-custom flex items-center justify-between">
-        <Link href={'/'} className="flex items-center">
+      <div className="container-custom px-4 lg:px-0 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
           <Image src={`/icons/${styles.icon}`} alt="logo" width={98} height={45} priority />
         </Link>
 
-        <nav className="flex items-center justify-between text-[16px]">
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center justify-between text-[16px]">
           <ul className="flex gap-10 mr-10">
             {items.map((item, index) => (
               <li key={index} className={cn(styles.link, 'cursor-pointer font-medium')}>
@@ -75,11 +77,54 @@ const Navbar = ({ className, items = navItems, lang = 'ID', variant = 'blue' }: 
               </li>
             ))}
           </ul>
-          <button className="flex items-center gap-1 cursor-pointer hover:opacity-80 transition" aria-label="Change language">
+          <button
+            className="flex items-center gap-1 cursor-pointer hover:opacity-80 transition"
+            aria-label="Change language"
+          >
             {lang} <ChevronDown size={18} />
           </button>
         </nav>
+
+        {/* Mobile Hamburger */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden flex items-center justify-center p-2 rounded hover:bg-white/20 transition"
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div
+          className={cn(
+            'absolute top-[75px] left-0 w-full bg-white/95 backdrop-blur-md shadow-md md:hidden transition-all duration-300'
+          )}
+        >
+          <ul className="flex flex-col gap-4 px-6 py-6 text-gray-800">
+            {items.map((item, index) => (
+              <li key={index}>
+                <Link
+                  href={`/${item.link}`}
+                  className="block py-2 text-lg font-medium hover:text-blue-600"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="px-6 pb-6">
+            <button
+              className="flex items-center gap-1 cursor-pointer text-gray-800 hover:text-blue-600 transition"
+              aria-label="Change language"
+            >
+              {lang} <ChevronDown size={18} />
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

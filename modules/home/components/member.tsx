@@ -19,8 +19,8 @@ const logos = [
 
 const MemberSection = () => {
   return (
-    <div className="flex flex-col items-center justify-center">
-      <h1 className="text-2xl font-semibold my-14">Anggota Bursa</h1>
+    <div className="flex flex-col items-center justify-center mt-10 lg:mt-0">
+      <h1 className="text-4xl font-semibold my-14">Anggota Bursa</h1>
 
       <div className="relative w-full max-w-6xl overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_64px,_black_calc(100%-64px),transparent_100%)]">
         <motion.div

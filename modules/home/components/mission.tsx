@@ -42,7 +42,7 @@ const logos = [
 const MissionSection = () => {
   return (
     <section className=" w-full min-h-screen  py-24">
-      <div className="relative w-full h-[400px] bg-no-repeat bg-center bg-cover" style={{ backgroundImage: 'url(mission-bg.png)' }}>
+      <div className="relative w-full lg:h-[400px] bg-no-repeat bg-center bg-cover" style={{ backgroundImage: 'url(mission-bg.png)' }}>
         <div className=" container-custom flex justify-center items-center  flex-col  px-4 gap-6 ">
           <div className="">
             <DotText text="Tugas Utama Kami" />
@@ -50,7 +50,7 @@ const MissionSection = () => {
           <h1 className="text-center text-3xl">
             Kami hadir untuk membangun ekosistem aset kripto yang sehat, <br /> terpercaya, dan berpihak pada kepentingan publik.
           </h1>
-          <div className="flex gap-12 items-center justify-center mt-10">
+          <div className="flex flex-col lg:flex-row gap-12 items-center justify-center mt-10">
             {missionItems.map((item, index) => (
               <div key={index} className=" flex flex-col items-center text-center">
                 <item.icons size={36} className="mb-4 text-white px-2 py-2 bg-[#213965] rounded-full" />
@@ -60,7 +60,7 @@ const MissionSection = () => {
             ))}
           </div>
           <div
-            className="absolute inset-1 bg-no-repeat bg-cover z-10"
+            className="hidden lg:absolute inset-1 bg-no-repeat bg-cover z-10"
             style={{
               backgroundImage: "url('/background/tugas.svg')",
               opacity: 0.6

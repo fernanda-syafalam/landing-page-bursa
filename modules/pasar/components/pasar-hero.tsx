@@ -13,11 +13,11 @@ const PasarHeroSection = () => {
         }}
       ></div>
  
-      <div className="container-custom flex flex-col gap-3 mt-44 justify-center items-center align-middle">
+      <div className="container-custom flex flex-col gap-3 mt-44 justify-center items-center align-middle text-center lg:text-left">
         <DotText text="Data Pasar" />
         <h1 className="text-5xl font-bold">Market & Harga Kripto Hari Ini</h1>
         <p className="text-muted-foreground text-lg">
-          Perkembangan harga dan data kripto terkini yang diperbarui setiap hari secara transparan.
+          Perkembangan harga dan data kripto terkini yang diperbarui setiap hari secara <br /> transparan.
         </p>
       </div>
     </section>

@@ -104,9 +104,9 @@ const BeritaPage = () => {
     <div>
       <Navbar variant="white" />
       <div className="min-h-screen">
-        <div className="container-custom mt-40 flex justify-between gap-4">
+        <div className="container-custom mt-40 flex flex-col lg:flex-row gap-6">
           <div
-            className="w-[690px]  bg-no-repeat bg-center bg-cover h-96 rounded-lg text-white p-6 flex flex-col items-baseline"
+            className=" lg:w-[690px] mx-4 lg:mx-0  bg-no-repeat bg-center bg-cover h-96 rounded-lg text-white p-6 flex flex-col items-baseline"
             style={{
               backgroundImage: `
       linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,1) 100%),
@@ -119,7 +119,7 @@ const BeritaPage = () => {
               <h1 className="text-2xl">Penetapan 3 Aset Kripto Baru di Bursa Resmi</h1>
             </div>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 mx-4 lg:mx-0">
             {beritaHeader.map((item, index) => (
               <div key={index} className="flex gap-5">
                 <Image src={item.image} width={180} height={118} alt="" className="rounded-lg" />
@@ -132,7 +132,7 @@ const BeritaPage = () => {
           </div>
         </div>
 
-        <div className="container-custom my-20 flex flex-col">
+        <div className="container-custom my-20 flex flex-col px-4 lg:px-0">
           <h1 className="text-2xl  font-semibold">Regulasi</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {regulasiItems.map((item, index) => (
@@ -156,7 +156,7 @@ const BeritaPage = () => {
           </div>
         </div>
 
-        <div className="container-custom my-20">
+        <div className="container-custom my-20 px-4 lg:px-0">
           <div className="flex justify-between">
             <h2 className="text-2xl font-semibold">Berita Lainnya</h2>
             <form className="flex items-center gap-2">

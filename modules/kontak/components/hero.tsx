@@ -10,7 +10,7 @@ import { Phone, Mail, PinIcon } from 'lucide-react';
 const KontakHero = () => {
   return (
     <section className="min-h-screen w-full mt-40 ">
-      <div className="mx-auto flex flex-col justify-center max-w-2xl items-center gap-5">
+      <div className="mx-auto flex flex-col  justify-center max-w-2xl items-center gap-5">
         <DotText text="Kontak" />
         <h1 className="text-5xl font-bold">Hubungi Kami</h1>
         <p className="text-muted-foreground items-center text-lg text-center">
@@ -18,7 +18,7 @@ const KontakHero = () => {
         </p>
       </div>
 
-      <div className="container-custom flex justify-between gap-4 mt-24">
+      <div className="container-custom flex flex-col lg:flex-row justify-between gap-4 mt-24 px-4">
         <Card className="w-full md:w-[690px]">
           <CardHeader>
             <CardTitle className="text-2xl">Kirim Pesan</CardTitle>
@@ -49,7 +49,7 @@ const KontakHero = () => {
               </div>
 
               <div className="flex flex-col  space-y-2">
-                <Textarea className="resize-none h-28" id="pesan" name="pesan" placeholder="Pesan" rows={3} />
+                <Textarea className="resize-none h-28" id="pesan" name="pesan" placeholder="Tuliskan Pesan" rows={4} />
               </div>
 
              <button className="w-full py-3 bg-background text-white rounded-lg hover:bg-primary hover:text-primary hover:border transition-all duration-200">
@@ -58,7 +58,7 @@ const KontakHero = () => {
             </form>
           </CardContent>
         </Card>
-        <Card className="w-[486px] text-white bg-background">
+        <Card className="w-full lg:w-[486px] text-white bg-background">
           <CardHeader>
             <CardTitle className="text-2xl">Butuh informasi lebih lanjut?</CardTitle>
             <CardDescription className="text-white">Hubungi kami melalui detail kontak di bawah ini.</CardDescription>
@@ -104,13 +104,14 @@ const KontakHero = () => {
         </Card>
       </div>
 
-      <div className="container-custom mb-24">
-        <div className="mt-12">
+      <div className="container-custom mb-24 px-4">
+        <div className="mt-10">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15863.544455559926!2d106.82046331510698!3d-6.214134695651983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3f7e1f9b5c1%3A0x61a3f7e77a3a16b!2sGedung%20Millenium%20Centennial%20Center!5e0!3m2!1sen!2sid!4v1645123335465!5m2!1sen!2sid"
             width="100%"
             height="450"
             style={{ border: 0 }}
+            className='rounded-lg'
 
             loading="lazy"
           ></iframe>

@@ -112,7 +112,7 @@ const PasarPage = () => {
       <Navbar variant="white" />
       <PasarHeroSection />
       <div className="relative container-custom mt-28">
-        <div className="flex justify-between">
+        <div className="hidden lg:flex justify-between">
           <div className="flex gap-4">
             {tabs.map((item, index) => (
               <button key={index} className={`text py-2.5 px-8 rounded-full ${item.active ? 'bg-[#D9E6FFE5]' : ''}`}>
@@ -129,10 +129,10 @@ const PasarPage = () => {
           </form>
         </div>
 
-        <div className="my-10">
-          <Card className="p-4 mb-4 bg-white rounded-lg shadow-2xl/10 ">
-            <table className="w-full text-center">
-              <thead className="text-muted-foreground text-sm font-light">
+        <div className="my-10 overflow-x-auto">
+          <Card className="p-4 mb-4 bg-white rounded-lg mx-4 lg:mx-0 w-fit lg:w-full">
+            <table className="min-w-3xl lg:min-w-full text-center">
+              <thead className="text-muted-foreground text-sm font-light sticky top-0 bg-white">
                 <tr>
                   <th className="px-4 py-4 text-left">Koin</th>
                   <th className="px-4 py-4 text-right">Harga Terkahir</th>
@@ -140,7 +140,6 @@ const PasarPage = () => {
                   <th className="px-4 py-4 text-right">Volume 24 Jam</th>
                 </tr>
               </thead>
-
               <tbody>
                 {coinsUpdate.map((coin, index) => (
                   <tr key={index} className="hover:bg-[#F6F9FF]">

@@ -17,7 +17,7 @@ const list = [
 
 const AboutSection = () => {
   return (
-    <section className="relative w-full min-h-screen py-24">
+    <section className="relative w-full min-h-screen lg:py-24">
       {/* Background */}
       <div
         className="absolute inset-0 bg-no-repeat bg-cover -left-1/2 top-12 z-10"
@@ -36,8 +36,11 @@ const AboutSection = () => {
         }}
       ></div>
 
-      <div className="container-custom flex flex-col md:flex-row gap-12 items-center relative z-10">
-        <div className="flex flex-col justify-start gap-6 flex-1">
+      <div className="container-custom flex flex-col md:flex-row gap-12 items-center relative z-10 mx-4 lg:mx-0">
+        <div className="flex-1 lg:hidden">
+          <Image src="/images/about.png" alt="about" width={587} height={600} />
+        </div>
+        <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left lg:justify-start gap-6 flex-1">
           <div className="bg-white px-3 py-1 text-sm rounded-full flex items-center gap-1 w-fit shadow-sm">
             <Dot size={16} strokeWidth={6} absoluteStrokeWidth /> Tentang Kami
           </div>
@@ -51,7 +54,7 @@ const AboutSection = () => {
             berjalan sehat dan terpercaya melalui pengawasan, standar keamanan, serta infrastruktur yang terintegrasi.
           </p>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 text-left">
             <p>Kami hadir dengan:</p>
             <ul className="flex flex-col gap-2">
               {list.map((item, index) => (
@@ -69,7 +72,7 @@ const AboutSection = () => {
           </div>
         </div>
 
-        <div className="flex-1">
+        <div className="hidden lg:block">
           <Image src="/images/about.png" alt="about" width={587} height={600} />
         </div>
       </div>

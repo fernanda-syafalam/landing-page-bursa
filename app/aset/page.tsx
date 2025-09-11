@@ -86,16 +86,16 @@ const AsetPage = () => {
     <div>
       <Navbar variant="white" />
       <div className="min-h-screen">
-        <div className="container-custom mt-42 flex flex-col justify-center items-center gap-4 ">
+        <div className="container-custom mt-42 flex flex-col justify-center items-center gap-4 text-center lg:text-left">
           <DotText text="Aset" />
-          <h1 className="text-5xl font-bold">Aset Kripto yang Terdaftar</h1>
+          <h1 className="text-2xl lg:text-5xl font-bold">Aset Kripto yang Terdaftar</h1>
           <p className="text-lg text-muted-foreground max-w-[720px] text-center">
             Daftar ini memuat aset kripto yang telah terdaftar dan diawasi sesuai ketentuan yang berlaku di Indonesia.
           </p>
         </div>
 
         <div className="container-custom mt-28">
-          <div className="flex justify-between">
+          <div className="hidden lg:flex justify-between">
             <div className="flex gap-4">
               {tabs.map((item, index) => (
                 <button key={index} className={`text py-2.5 px-8 rounded-full ${item.active ? 'bg-[#D9E6FFE5]' : ''}`}>
@@ -112,9 +112,9 @@ const AsetPage = () => {
             </form>
           </div>
 
-          <div className="my-10 mb-24">
-            <Card className="p-4 bg-white rounded-lg shadow-2xl/10 mb-12">
-              <table className="w-full text-center">
+          <div className="my-10 mb-24 mx-4 overflow-x-auto">
+            <Card className="p-4 bg-white rounded-lg  mb-12 w-fit">
+              <table className="min-w-2xl lg:w-full text-center">
                 <thead className="text-muted-foreground text-sm font-light">
                   <tr>
                     <th className="px-4 py-4 text-left">Koin</th>
