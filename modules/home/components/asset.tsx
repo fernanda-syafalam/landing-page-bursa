@@ -1,125 +1,103 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
-import { icons } from 'lucide-react';
-import React from 'react';
+"use client";
 
-const items = [
-  {
-    icon: '',
-    coin: 'BTC',
-    name: 'Bitcoin',
-    status: 'Baru',
-    desc: 'Disetujui 20 Okt 2023'
-  },
-  {
-    icon: '',
-    coin: 'ETH',
-    name: 'Ethereum',
-    status: 'Baru',
-    desc: 'Disetujui 20 Okt 2023'
-  },
-  {
-    icon: '',
-    coin: 'USDT',
-    name: 'Tether',
-    status: 'Baru',
-    desc: 'Disetujui 20 Okt 2023'
-  }
-];
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import { getLatestCrypto } from "@/services/cryptoService";
+import { useEffect, useState } from "react";
 
-const coinsUpdate = [
-  {
-    icons: '',
-    coin: 'BTC',
-    name: 'Bitcoin',
-    lastPrice: 'Rp 420.000.000',
-    change: '+2.5%',
-    volume: 'Rp 1.500.000.000'
-  },
-  {
-    icons: '',
-    coin: 'ETH',
-    name: 'Ethereum',
-    lastPrice: 'Rp 27.000.000',
-    change: '+1.8%',
-    volume: 'Rp 750.000.000'
-  },
-  {
-    icons: '',
-    coin: 'USDT',
-    name: 'Tether',
-    lastPrice: 'Rp 14.500',
-    change: '-0.1%',
-    volume: 'Rp 2.500.000.000'
-  },
-  {
-    icons: '',
-    coin: 'BNB',
-    name: 'Binance Coin',
-    lastPrice: 'Rp 4.500.000',
-    change: '+3.2%',
-    volume: 'Rp 450.000.000'
-  },
-  {
-    icons: '',
-    coin: 'ADA',
-    name: 'Cardano',
-    lastPrice: 'Rp 7.500',
-    change: '+4.1%',
-    volume: 'Rp 225.000.000'
-  }
-];
+export default function AssetSection() {
+  const [latest, setLatest] = useState<any[]>([]);
+  const [market, setMarket] = useState<any[]>([]);
 
-const AssetSection = () => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // 3 aset terbaru
+        const latestData = await getLatestCrypto(1, 3, "USD");
+        setLatest(latestData);
+
+        // 5 aset untuk data pasar
+        const marketData = await getLatestCrypto(1, 5, "USD");
+        setMarket(marketData);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <section className="w-full min-h-screen bg-gradient-to-b from-[#F6F9FF] to-[#F6F9FF00] py-36">
       <div className="container-custom px-4">
+        {/* Header */}
         <div className="flex justify-center items-center lg:justify-between">
           <h1 className="text-3xl font-semibold">Asset Crypto Terbaru</h1>
-          <Button variant="outline" className="hidden lg:block bg-white text-black border-black hover:bg-background px-5 hover:text-white">
+          <Button
+            variant="outline"
+            className="hidden lg:block bg-white text-black border-black hover:bg-background px-5 hover:text-white"
+          >
             Lihat Semua Aset
           </Button>
         </div>
 
+        {/* Latest 3 */}
         <div className="flex flex-col lg:flex-row flex-nowrap justify-center gap-5 mt-10 col-span-12">
-          {items.map((item, index) => (
-            <div key={index} className="flex flex-col gap-8 basis-1/3 mx-4 lg:mx-0  h-36  px-6 py-4 rounded-lg bg-white border">
+          {latest.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col gap-8 basis-1/3 mx-4 lg:mx-0 h-36 px-6 py-4 rounded-lg bg-white border"
+            >
               <div className="flex justify-between">
                 <div className="flex items-center gap-2">
                   <Avatar className="w-12 h-12">
-                    <AvatarImage src="https://github.com/" />
-                    <AvatarFallback>{item.coin}</AvatarFallback>
+                    <AvatarImage
+                      src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${item.id}.png`}
+                    />
+                    <AvatarFallback>{item.symbol}</AvatarFallback>
                   </Avatar>
-                  <div className="">
-                    <h2 className="text-xl font-semibold">{item.coin}</h2>
+                  <div>
+                    <h2 className="text-xl font-semibold">{item.symbol}</h2>
                     <p className="text-gray-600">{item.name}</p>
                   </div>
                 </div>
 
-                <div className="">
-                  <span className="text-sm bg-green-100 text-green-800 px-2 py-1 rounded-full">{item.status}</span>
+                <div>
+                  <span className="text-sm bg-green-100 text-green-800 px-2 py-1 rounded-full">
+                    Baru
+                  </span>
                 </div>
               </div>
 
               <div className="flex gap-2 items-center">
-                <span className="text-sm text-gray-500">{item.desc}</span>
+                <span className="text-sm text-gray-500">
+                  Disetujui {new Date(item.date_added).toLocaleDateString("id-ID")}
+                </span>
+             
               </div>
             </div>
           ))}
         </div>
+
+        {/* Button mobile */}
         <div className="w-full flex justify-center my-12 lg:hidden">
-          <Button variant="outline" className=" bg-white text-black border-black hover:bg-background px-5 hover:text-white">
+          <Button
+            variant="outline"
+            className=" bg-white text-black border-black hover:bg-background px-5 hover:text-white"
+          >
             Lihat Semua Aset
           </Button>
         </div>
+
+        {/* Market Table */}
         <div className="lg:mt-36">
           <div className="flex text-center lg:text-left justify-between items-center align-baseline">
-            <div className="">
+            <div>
               <h1 className="text-3xl font-semibold">Data Pasar Terkini </h1>
               <p className="text-muted-foreground mt-4">
-                Perkembangan harga dan data kripto terkini yang diperbarui setiap hari secara transparan
+                Perkembangan harga dan data kripto terkini yang diperbarui
+                setiap hari secara transparan
               </p>
             </div>
 
@@ -133,7 +111,7 @@ const AssetSection = () => {
         </div>
 
         <div className="mt-10 overflow-x-auto lg:px-0">
-          <Card className="p-4 mb-4 bg-white rounded-lg  lg:mx-0 w-fit lg:w-full">
+          <Card className="p-4 mb-4 bg-white rounded-lg lg:mx-0 w-fit lg:w-full">
             <table className="min-w-3xl lg:min-w-full text-center">
               <thead className="text-muted-foreground text-sm font-light sticky top-0 bg-white">
                 <tr>
@@ -145,44 +123,56 @@ const AssetSection = () => {
               </thead>
 
               <tbody>
-                {coinsUpdate.map((coin, index) => (
+                {market.map((coin, index) => (
                   <tr key={index} className="hover:bg-[#F6F9FF]">
                     <td className="px-4 py-4 flex items-center gap-2 justify-start">
                       <Avatar className="w-12 h-12">
-                        <AvatarImage src="https://github.com/" />
-                        <AvatarFallback>{coin.coin}</AvatarFallback>
+                        <AvatarImage
+                          src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${coin.id}.png`}
+                        />
+                        <AvatarFallback>{coin.symbol}</AvatarFallback>
                       </Avatar>
                       <div className="text-left">
-                        <span className="text-sm font-semibold">{coin.coin}</span>
+                        <span className="text-sm font-semibold">
+                          {coin.symbol}
+                        </span>
                         <p className="text-xs text-gray-500">{coin.name}</p>
                       </div>
                     </td>
-                    <td className="px-4 py-4 text-sm font-semibold text-right">{coin.lastPrice}</td>
+                    <td className="px-4 py-4 text-sm font-semibold text-right">
+                      ${coin.quote.USD.price.toLocaleString()}
+                    </td>
                     <td className="px-4 py-4 text-sm font-semibold text-right">
                       <span
                         className={cn(
-                          'inline-block px-4 py-1 text-xs font-semibold rounded-full',
-                          coin.change.includes('-') ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'
+                          "inline-block px-4 py-1 text-xs font-semibold rounded-full",
+                          coin.quote.USD.percent_change_24h < 0
+                            ? "bg-red-100 text-red-800"
+                            : "bg-green-100 text-green-800"
                         )}
                       >
-                        {coin.change}
+                        {coin.quote.USD.percent_change_24h.toFixed(2)}%
                       </span>
                     </td>
-                    <td className="px-4 py-4 text-sm font-semibold text-right">{coin.volume}</td>
+                    <td className="px-4 py-4 text-sm font-semibold text-right">
+                      ${coin.quote.USD.volume_24h.toLocaleString()}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </Card>
         </div>
+
         <div className="w-full flex justify-center mt-12 lg:hidden">
-          <Button variant="outline" className=" bg-white text-black border-black hover:bg-background px-6 hover:text-white">
+          <Button
+            variant="outline"
+            className=" bg-white text-black border-black hover:bg-background px-6 hover:text-white"
+          >
             Selengkapnya
           </Button>
         </div>
       </div>
     </section>
   );
-};
-
-export default AssetSection;
+}

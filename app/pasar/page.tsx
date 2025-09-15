@@ -1,3 +1,4 @@
+'use client';
 import FooterSection from '@/components/footer';
 import Navbar from '@/components/navbar';
 import Pagination from '@/components/pagination';
@@ -6,9 +7,11 @@ import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import CatatanSection from '@/modules/pasar/components/catatan';
 import PasarHeroSection from '@/modules/pasar/components/pasar-hero';
+import { getLatestCrypto } from '@/services/cryptoService';
 import { SearchIcon } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 const tabs = [
   {
     title: 'Semua',
@@ -23,90 +26,27 @@ const tabs = [
     active: false
   }
 ];
-
-const coinsUpdate = [
-  {
-    icons: '',
-    coin: 'BTC',
-    name: 'Bitcoin',
-    lastPrice: 'Rp 420.000.000',
-    change: '+2.5%',
-    volume: 'Rp 1.500.000.000'
-  },
-  {
-    icons: '',
-    coin: 'ETH',
-    name: 'Ethereum',
-    lastPrice: 'Rp 27.000.000',
-    change: '+1.8%',
-    volume: 'Rp 750.000.000'
-  },
-  {
-    icons: '',
-    coin: 'USDT',
-    name: 'Tether',
-    lastPrice: 'Rp 14.500',
-    change: '-0.1%',
-    volume: 'Rp 2.500.000.000'
-  },
-  {
-    icons: '',
-    coin: 'BNB',
-    name: 'Binance Coin',
-    lastPrice: 'Rp 4.500.000',
-    change: '+3.2%',
-    volume: 'Rp 450.000.000'
-  },
-  {
-    icons: '',
-    coin: 'ADA',
-    name: 'Cardano',
-    lastPrice: 'Rp 7.500',
-    change: '+4.1%',
-    volume: 'Rp 225.000.000'
-  },
-  {
-    icons: '',
-    coin: 'XRP',
-    name: 'Ripple',
-    lastPrice: 'Rp 1.200',
-    change: '+1.5%',
-    volume: 'Rp 180.000.000'
-  },
-  {
-    icons: '',
-    coin: 'SOL',
-    name: 'Solana',
-    lastPrice: 'Rp 150.000',
-    change: '+2.1%',
-    volume: 'Rp 120.000.000'
-  },
-  {
-    icons: '',
-    coin: 'DOGE',
-    name: 'Dogecoin',
-    lastPrice: 'Rp 1.100',
-    change: '-0.9%',
-    volume: 'Rp 110.000.000'
-  },
-  {
-    icons: '',
-    coin: 'MATIC',
-    name: 'Polygon',
-    lastPrice: 'Rp 1.800',
-    change: '+0.5%',
-    volume: 'Rp 90.000.000'
-  },
-  {
-    icons: '',
-    coin: 'AVAX',
-    name: 'Avalanche',
-    lastPrice: 'Rp 2.500',
-    change: '+3.2%',
-    volume: 'Rp 60.000.000'
-  }
-];
 const PasarPage = () => {
+  const searchParams = useSearchParams();
+  const [latest, setLatest] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const page = Number(searchParams.get('page') || 1);
+  const perPage = 10;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // 3 aset terbaru
+        const latestData = await getLatestCrypto(page, perPage, 'USD');
+        setLatest(latestData);
+        setIsLoading(false);
+      } catch (e) {
+        console.error(e);
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+  }, [page]);
+
   return (
     <div>
       <Navbar variant="white" />
@@ -141,36 +81,44 @@ const PasarPage = () => {
                 </tr>
               </thead>
               <tbody>
-                {coinsUpdate.map((coin, index) => (
-                  <tr key={index} className="hover:bg-[#F6F9FF]">
-                    <td className="px-4 py-4 flex items-center gap-2 justify-start">
-                      <Avatar className="w-12 h-12">
-                        <AvatarImage src="https://github.com/" />
-                        <AvatarFallback>{coin.coin}</AvatarFallback>
-                      </Avatar>
-                      <div className="text-left">
-                        <span className="text-sm font-semibold">{coin.coin}</span>
-                        <p className="text-xs text-gray-500">{coin.name}</p>
-                      </div>
+                {isLoading ? (
+                  <tr>
+                    <td colSpan={4} className="text-center">
+                      <div className="animate-spin h-5 w-5 border-b border-gray-900 rounded-full" />
                     </td>
-                    <td className="px-4 py-4 text-sm font-semibold text-right">{coin.lastPrice}</td>
-                    <td className="px-4 py-4 text-sm font-semibold text-right">
-                      <span
-                        className={cn(
-                          'inline-block px-4 py-1 text-xs font-semibold rounded-full',
-                          coin.change.includes('-') ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'
-                        )}
-                      >
-                        {coin.change}
-                      </span>
-                    </td>
-                    <td className="px-4 py-4 text-sm font-semibold text-right">{coin.volume}</td>
                   </tr>
-                ))}
+                ) : (
+                  latest.map((coin, index) => (
+                    <tr key={index} className="hover:bg-[#F6F9FF]">
+                      <td className="px-4 py-4 flex items-center gap-2 justify-start">
+                        <Avatar className="w-12 h-12">
+                          <AvatarImage src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${coin.id}.png`} />
+                        </Avatar>
+                        <div className="text-left">
+                          <span className="text-sm font-semibold">{coin.name}</span>
+                          <p className="text-xs text-gray-500">{coin.slug}</p>
+                        </div>
+                      </td>
+                      <td className="px-4 py-4 text-sm font-semibold text-right">{coin.quote.USD.price}</td>
+                      <td className="px-4 py-4 text-sm font-semibold text-right">
+                        <span
+                          className={cn(
+                            'inline-block px-4 py-1 text-xs font-semibold rounded-full',
+                            coin.quote.USD.percent_change_24h < 0 ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'
+                          )}
+                        >
+                          {coin.quote.USD.percent_change_24h}
+                        </span>
+                      </td>
+                      <td className="px-4 py-4 text-sm font-semibold text-right">{coin.quote.USD.volume_24h}</td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </Card>
         </div>
+
         <div
           className="absolute -right-40 -bottom-32 w-[80px] h-[80px] rounded-full z-10"
           style={{
@@ -180,7 +128,7 @@ const PasarPage = () => {
           }}
         ></div>
 
-        <Pagination currentPage={1} totalPages={182} />
+        <Pagination totalPages={Math.ceil(182 / perPage)} />
       </div>
       <CatatanSection />
       <FooterSection />
@@ -189,3 +137,4 @@ const PasarPage = () => {
 };
 
 export default PasarPage;
+

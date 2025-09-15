@@ -1,87 +1,42 @@
+'use client';
+
 import DotText from '@/components/dot-text';
 import FooterSection from '@/components/footer';
 import Navbar from '@/components/navbar';
 import Pagination from '@/components/pagination';
 import { AvatarImage, AvatarFallback, Avatar } from '@/components/ui/avatar';
 import { Card } from '@/components/ui/card';
+import { getLatestCrypto } from '@/services/cryptoService';
 import { SearchIcon } from 'lucide-react';
-import React from 'react';
+import { useSearchParams } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 
 const tabs = [
-  {
-    title: 'Semua',
-    active: true
-  },
-  {
-    title: 'Listing terbaru',
-    active: false
-  },
-  {
-    title: 'Top Gainer',
-    active: false
-  }
-];
-
-const listCrypto = [
-  {
-    icon: '',
-    coin: 'BTC',
-    name: 'Bitcoin',
-    kategori: 'Cryptocurrency',
-    terdaftar: '20 Okt 2023'
-  },
-  {
-    icon: '',
-    coin: 'ETH',
-    name: 'Ethereum',
-    kategori: 'Cryptocurrency',
-    terdaftar: '20 Okt 2023'
-  },
-  {
-    icon: '',
-    coin: 'USDT',
-    name: 'Tether',
-    kategori: 'Stablecoin',
-    terdaftar: '20 Okt 2023'
-  },
-  {
-    icon: '',
-    coin: 'BNB',
-    name: 'Binance Coin',
-    kategori: 'Cryptocurrency',
-    terdaftar: '20 Okt 2023'
-  },
-  {
-    icon: '',
-    coin: 'MATIC',
-    name: 'Polygon',
-    kategori: 'Cryptocurrency',
-    terdaftar: '20 Okt 2023'
-  },
-  {
-    icon: '',
-    coin: 'DOGE',
-    name: 'Dogecoin',
-    kategori: 'Cryptocurrency',
-    terdaftar: '20 Okt 2023'
-  },
-  {
-    icon: '',
-    coin: 'SOL',
-    name: 'Solana',
-    kategori: 'Cryptocurrency',
-    terdaftar: '20 Okt 2023'
-  },
-  {
-    icon: '',
-    coin: 'XRP',
-    name: 'Ripple',
-    kategori: 'Cryptocurrency',
-    terdaftar: '20 Okt 2023'
-  }
+  { title: 'Semua', active: true },
+  { title: 'Listing terbaru', active: false },
+  { title: 'Top Gainer', active: false }
 ];
 
 const AsetPage = () => {
+  const searchParams = useSearchParams();
+  const [cryptoList, setCryptoList] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const page = Number(searchParams.get('page') || 1);
+  const perPage = 10;
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await getLatestCrypto(page, perPage, 'USD');
+        setCryptoList(res);
+      } catch (err) {
+        console.error('[Fetch Error]', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+
   return (
     <div>
       <Navbar variant="white" />
@@ -106,47 +61,51 @@ const AsetPage = () => {
 
             <form className="flex items-center gap-2">
               <div className="relative w-72">
-                <input type="text" placeholder="Cari Aset" className="border border-gray-300 rounded-md px-3 py-2 w-full " />
+                <input type="text" placeholder="Cari Aset" className="border border-gray-300 rounded-md px-3 py-2 w-full" />
                 <SearchIcon className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               </div>
             </form>
           </div>
 
-          <div className="my-10 mb-24 mx-4 overflow-x-auto">
-            <Card className="p-4 bg-white rounded-lg  mb-12 w-fit">
-              <table className="min-w-2xl lg:w-full text-center">
-                <thead className="text-muted-foreground text-sm font-light">
-                  <tr>
-                    <th className="px-4 py-4 text-left">Koin</th>
-                    <th className="px-4 py-4 text-right">Symbol</th>
-                    <th className="px-4 py-4 text-right">Kategori</th>
-                    <th className="px-4 py-4 text-right">Tanggal Terdaftar</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {listCrypto.map((coin, index) => (
-                    <tr key={index} className="hover:bg-[#F6F9FF]">
-                      <td className="px-4 py-4 flex items-center gap-2 justify-start">
-                        <Avatar className="w-12 h-12">
-                          <AvatarImage src="https://github.com/" />
-                          <AvatarFallback>{coin.coin}</AvatarFallback>
-                        </Avatar>
-                        <div className="text-left">
-                          <span className="text-sm font-semibold">{coin.icon}</span>
-                          <p className="text-xs text-gray-500">{coin.name}</p>
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 text-sm font-semibold text-right">{coin.coin}</td>
-                      <td className="px-4 py-4 text-sm font-semibold text-right">{coin.kategori}</td>
-                      <td className="px-4 py-4 text-sm font-semibold text-right">{coin.terdaftar}</td>
+          <div className="my-10 mb-24 mx-4 overflow-x-auto pb-4">
+            <Card className="p-4 bg-white rounded-lg mb-12 w-fit lg:w-full">
+              {loading ? (
+                <p className="text-center py-10">Loading...</p>
+              ) : (
+                <table className="min-w-2xl lg:w-full text-center">
+                  <thead className="text-muted-foreground text-sm font-light">
+                    <tr>
+                      <th className="px-4 py-4 text-left">Koin</th>
+                      <th className="px-4 py-4 text-right">Symbol</th>
+                      <th className="px-4 py-4 text-right">Harga (USD)</th>
+                      <th className="px-4 py-4 text-right">Market Cap</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+
+                  <tbody>
+                    {cryptoList.map((coin, index) => (
+                      <tr key={index} className="hover:bg-[#F6F9FF]">
+                        <td className="px-4 py-4 flex items-center gap-2 justify-start">
+                          <Avatar className="w-12 h-12">
+                            <AvatarImage src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${coin.id}.png`} alt={coin.symbol} />
+                            <AvatarFallback>{coin.symbol}</AvatarFallback>
+                          </Avatar>
+                          <div className="text-left">
+                            <span className="text-sm font-semibold">{coin.symbol}</span>
+                            <p className="text-xs text-gray-500">{coin.name}</p>
+                          </div>
+                        </td>
+                        <td className="px-4 py-4 text-sm font-semibold text-right">{coin.symbol}</td>
+                        <td className="px-4 py-4 text-sm font-semibold text-right">${coin.quote.USD.price.toFixed(2)}</td>
+                        <td className="px-4 py-4 text-sm font-semibold text-right">${coin.quote.USD.market_cap.toLocaleString()}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
             </Card>
 
-            <Pagination currentPage={1} totalPages={182} />
+            <Pagination totalPages={182} />
           </div>
         </div>
       </div>
