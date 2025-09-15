@@ -11,14 +11,14 @@ const items = [
     date: '13 Agt 2025 18:00:00',
     icon: FaFileAlt,
     type: 'Bursa',
-    href: '#'
+    href: 'Salinan-POJK-Nomor-27-Tahun-2024.pdf'
   },
   {
     title: 'SK Penetapan Daftar Aset Kripto',
     date: '13 Agt 2025 18:00:00',
     icon: FaFileAlt,
     type: 'Pemerintah',
-    href: '#'
+    href: 'PMKRI-Nomor-50-2025.pdf'
   },
 ];
 
@@ -69,7 +69,7 @@ const NewsSection = () => {
                     {item.type}
                   </Badge>
                   <p className="text-sm text-gray-500 mt-5 mb-2">{item.date}</p>
-                  <Link href={item.href} className="font-semibold text-xl hover:text-background">
+                  <Link href={`/file/${item.href}`} target='_blank' className="font-semibold text-xl hover:text-background">
                     {item.title}
                   </Link>
                 </div>

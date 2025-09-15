@@ -11,7 +11,8 @@ const beritaHeader = [
   {
     tanggal: '21 Januari 2023',
     Judul: 'Penetapan 3 Aset Kripto Baru di Bursa Resmi',
-    image: '/images/news.png'
+    image: '/images/news.png',
+    file: '/file/PMKRI-Nomor-50-2025 .pdf'
   },
   {
     tanggal: '21 Januari 2023',
@@ -21,7 +22,7 @@ const beritaHeader = [
   {
     tanggal: '21 Januari 2023',
     Judul: 'Penetapan 3 Aset Kripto Baru di Bursa Resmi',
-    image: '/images/news.png'
+    image: 'Salinan-POJK-Nomor-27-Tahun-2024.pdf'
   }
 ];
 
@@ -136,7 +137,7 @@ const BeritaPage = () => {
           <h1 className="text-2xl  font-semibold">Regulasi</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {regulasiItems.map((item, index) => (
-              <div key={index} className="flex flex-col gap-4">
+              <Link href={item.href} key={index} className="flex flex-col gap-4">
                 <div className="mt-6">
                   <Badge variant="default" className="text-xs bg-amber-200/50 text-black/70">
                     {item.tipe}
@@ -151,7 +152,7 @@ const BeritaPage = () => {
                   <h4 className="text-muted-foreground">{item.tanggal}</h4>
                   <h4 className="text-muted-foreground">{item.jam}</h4>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -186,7 +187,7 @@ const BeritaPage = () => {
             ))}
           </div>
           <div className="w-full flex justify-center items-center mt-10">
-            <Pagination currentPage={1} totalPages={30} />
+            <Pagination  totalPages={30} />
           </div>
         </div>
       </div>
