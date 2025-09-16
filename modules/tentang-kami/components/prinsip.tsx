@@ -1,25 +1,26 @@
+import { Blogpost1 } from '@/components/blogpost1';
 import { Button } from '@/components/ui/button';
-import { CheckCircle2, LockIcon, RocketIcon, ShieldCheckIcon } from 'lucide-react';
+import { CheckCircle2, FileCheckIcon, HandshakeIcon, LockIcon, RocketIcon, ShieldCheckIcon, TrendingUpIcon } from 'lucide-react';
 import React from 'react';
 
 const prinsipItems = [
   {
-    icon: LockIcon,
+    icon: ShieldCheckIcon,
     title: 'Keamanan',
     desc: 'Menjaga aset dan data pengguna melalui standar keamanan informasi yang ketat serta sertifikasi internasional.'
   },
   {
-    icon: CheckCircle2,
+    icon: FileCheckIcon,
     title: 'Kepatuhan',
     desc: 'Beroperasi sesuai regulasi nasional dan global untuk memastikan transparansi dan perlindungan investor.'
   },
   {
-    icon: ShieldCheckIcon,
+    icon: HandshakeIcon,
     title: 'Kepercayaan',
     desc: 'Membangun ekosistem yang kredibel melalui layanan yang transparan, profesional, dan berkelanjutan.'
   },
   {
-    icon: RocketIcon,
+    icon: TrendingUpIcon,
     title: 'Inovasi',
     desc: 'Mengembangkan teknologi berbasis blockchain dan solusi digital yang adaptif terhadap kebutuhan pasar.'
   }
@@ -29,42 +30,42 @@ const memberProfile = [
   {
     name: 'Dwi Kurniawan',
     desc: 'CEO, IGX',
-    profile: 'https://i.pravatar.cc/300?img=12'
+    profile: '/member/person.png'
   },
   {
-    name: 'Rifky Maulana',
-    desc: 'CTO, IGX',
-    profile: 'https://i.pravatar.cc/300?img=32'
+    name: 'Oscar Adaman Darmawan',
+    desc: 'Direktur Utama',
+    profile: '/member/oscar.png'
   },
   {
     name: 'Budi Santoso',
     desc: 'CFO, IGX',
-    profile: 'https://i.pravatar.cc/300?img=45'
+    profile: '/member/person.png'
   },
   {
     name: 'Siti Rahma',
     desc: 'CMO, IGX',
-    profile: 'https://i.pravatar.cc/300?img=47'
+    profile: '/member/person.png'
   },
   {
     name: 'Andi Wijaya',
     desc: 'COO, IGX',
-    profile: 'https://i.pravatar.cc/300?img=18'
+    profile: '/member/person.png'
   },
   {
     name: 'Nurul Aini',
     desc: 'Komisaris, IGX',
-    profile: 'https://i.pravatar.cc/300?img=56'
+    profile: '/member/person.png'
   },
   {
     name: 'Adi Wibowo',
     desc: 'Direktur Pengawasan, IGX',
-    profile: 'https://i.pravatar.cc/300?img=23'
+    profile: '/member/person.png'
   },
   {
     name: 'Ratna Dewi',
     desc: 'Direktur Keuangan, IGX',
-    profile: 'https://i.pravatar.cc/300?img=65'
+    profile: '/member/person.png'
   }
 ];
 
@@ -95,15 +96,29 @@ const PrinsipSection = () => {
 
       {/* Anggota */}
       <div className="my-24 px-4 lg:px-0 container-custom flex flex-col justify-center items-center gap-6">
-        <h1 className="text-2xl font-bold">Direksi & Komisaris</h1>
+        <h1 className="text-2xl font-bold">Komisaris & Direksi</h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
-          {memberProfile.map((item, index) => (
-            <div key={index} className="relative group rounded-md h-80 w-full md:w-72 overflow-hidden shadow-md hover:shadow-lg transition">
+        <div className="flex gap-4 items-center justify-center w-full mt-4">
+          {memberProfile.slice(0, 3).map((item, index) => (
+            <div key={index} className="relative group rounded-md h-80 w-72 overflow-hidden shadow-md hover:shadow-lg transition">
               {/* Foto */}
               <img src={item.profile} alt={item.name} className="w-full h-full object-cover" />
 
               {/* Overlay Hover */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#213965E5]/40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h4 className="text-white font-semibold text-lg">{item.name}</h4>
+                <p className="text-gray-200 text-sm">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex gap-6 justify-center items-center w-full ">
+          {memberProfile.slice(3, 5).map((item, index) => (
+            <div key={index + 3} className="relative group rounded-md h-80 w-72 overflow-hidden shadow-md hover:shadow-lg transition">
+              {/* Foto */}
+              <img src={item.profile} alt={item.name} className="w-full h-full object-cover" />
+
               <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <h4 className="text-white font-semibold text-lg">{item.name}</h4>
                 <p className="text-gray-200 text-sm">{item.desc}</p>
@@ -113,11 +128,13 @@ const PrinsipSection = () => {
         </div>
       </div>
 
-      <div className="w-full px-4">
+      <div className="w-full px-4 hidden">
         <div className="container-custom h-72  lg:h-62 py-8 flex flex-col lg:flex-row justify-between items-center text-center lg:text-left text-white px-7 bg-[linear-gradient(272.45deg,#192B4D_0%,#213865_47.77%,#192B4D_100%)] rounded-lg ">
           <div className=" flex flex-col justify-start gap-4 align-middle">
             <h1 className="text-2xl lg:text-3xl">Bergabung & Berkarya Bersama Kami</h1>
-            <p className="text-lg">Jadillah bagian dari perubahan besar di industri keuangan <br /> digital.</p>
+            <p className="text-lg">
+              Jadillah bagian dari perubahan besar di industri keuangan <br /> digital.
+            </p>
           </div>
           <Button variant="secondary">Lihat Lowongan</Button>
         </div>

@@ -35,7 +35,6 @@ const PasarPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // 3 aset terbaru
         const latestData = await getLatestCrypto(page, perPage, 'USD');
         setLatest(latestData);
         setIsLoading(false);

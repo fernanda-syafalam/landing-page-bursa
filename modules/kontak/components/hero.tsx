@@ -9,7 +9,15 @@ import { Phone, Mail, PinIcon } from 'lucide-react';
 
 const KontakHero = () => {
   return (
-    <section className="min-h-screen w-full mt-40 ">
+    <section className="relative min-h-screen w-full mt-40 ">
+      <div
+        className="absolute -left-40 -top-32 w-[330px] h-[330px] rounded-full z-10"
+        style={{
+          backgroundColor: '#B2CCFF', // biru transparan
+          boxShadow: '0 0 200px 200px #B2CCFF', // glow
+          opacity: 0.3
+        }}
+      ></div>
       <div className="mx-auto flex flex-col  justify-center max-w-2xl items-center gap-5">
         <DotText text="Kontak" />
         <h1 className="text-5xl font-bold">Hubungi Kami</h1>
@@ -52,9 +60,9 @@ const KontakHero = () => {
                 <Textarea className="resize-none h-28" id="pesan" name="pesan" placeholder="Tuliskan Pesan" rows={4} />
               </div>
 
-             <button className="w-full py-3 bg-background text-white rounded-lg hover:bg-primary hover:text-primary hover:border transition-all duration-200">
+              <button className="w-full py-3 bg-background text-white rounded-lg hover:bg-primary hover:text-primary hover:border transition-all duration-200">
                 Kirim Pesan
-             </button>
+              </button>
             </form>
           </CardContent>
         </Card>
@@ -111,8 +119,7 @@ const KontakHero = () => {
             width="100%"
             height="450"
             style={{ border: 0 }}
-            className='rounded-lg'
-
+            className="rounded-lg"
             loading="lazy"
           ></iframe>
         </div>

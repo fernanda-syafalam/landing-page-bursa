@@ -41,7 +41,15 @@ const AsetPage = () => {
     <div>
       <Navbar variant="white" />
       <div className="min-h-screen">
-        <div className="container-custom mt-42 flex flex-col justify-center items-center gap-4 text-center lg:text-left">
+        <div className="relative container-custom mt-42 flex flex-col justify-center items-center gap-4 text-center lg:text-left">
+          <div
+            className="absolute -left-40 -top-32 w-[330px] h-[330px] rounded-full z-10"
+            style={{
+              backgroundColor: '#B2CCFF', // biru transparan
+              boxShadow: '0 0 200px 200px #B2CCFF', // glow
+              opacity: 0.3
+            }}
+          ></div>
           <DotText text="Aset" />
           <h1 className="text-2xl lg:text-5xl font-bold">Aset Kripto yang Terdaftar</h1>
           <p className="text-lg text-muted-foreground max-w-[720px] text-center">

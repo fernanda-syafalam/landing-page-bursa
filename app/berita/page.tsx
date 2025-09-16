@@ -11,8 +11,7 @@ const beritaHeader = [
   {
     tanggal: '21 Januari 2023',
     Judul: 'Penetapan 3 Aset Kripto Baru di Bursa Resmi',
-    image: '/images/news.png',
-    file: '/file/PMKRI-Nomor-50-2025 .pdf'
+    image: '/images/news.png'
   },
   {
     tanggal: '21 Januari 2023',
@@ -22,7 +21,7 @@ const beritaHeader = [
   {
     tanggal: '21 Januari 2023',
     Judul: 'Penetapan 3 Aset Kripto Baru di Bursa Resmi',
-    image: 'Salinan-POJK-Nomor-27-Tahun-2024.pdf'
+    image: '/images/news.png'
   }
 ];
 
@@ -32,14 +31,16 @@ const regulasiItems = [
     title: 'Peraturan Otoritas Jasa Keuangan Republik Indonesia Nomor 27 Tahun 2024',
     desc: 'Peraturan Tentang Penyelenggaraan Perdagangan Aset Keuangan Digital Termasuk Aset Kripto',
     tanggal: '27 Agt 2024',
-    jam: '12:00.00'
+    jam: '12:00.00',
+    href: 'Salinan-POJK-Nomor-27-Tahun-2024.pdf'
   },
   {
     tipe: 'Pemerintah',
     title: 'Peraturan Menteri Keuangan Republik Indonesia Nomor 50 Tahun 2025 ',
     desc: 'Peraturan Tentang Pajak Pertambahan Nilai dan Pajak Penghasilan Atas Transaksi Perdagangan Aset Kripto',
     tanggal: '13 Agt 2025',
-    jam: '18:00:00'
+    jam: '18:00:00',
+    href: 'PMKRI-Nomor-50-2025.pdf'
   }
 ];
 
@@ -105,7 +106,15 @@ const BeritaPage = () => {
     <div>
       <Navbar variant="white" />
       <div className="min-h-screen">
-        <div className="container-custom mt-40 flex flex-col lg:flex-row gap-6">
+        <div className="relative container-custom mt-40 flex flex-col lg:flex-row gap-6">
+          <div
+            className="absolute -left-40 -top-32 w-[330px] h-[330px] rounded-full z-10"
+            style={{
+              backgroundColor: '#B2CCFF', // biru transparan
+              boxShadow: '0 0 200px 200px #B2CCFF', // glow
+              opacity: 0.3
+            }}
+          ></div>
           <div
             className=" lg:w-[690px] mx-4 lg:mx-0  bg-no-repeat bg-center bg-cover h-96 rounded-lg text-white p-6 flex flex-col items-baseline"
             style={{
@@ -137,22 +146,22 @@ const BeritaPage = () => {
           <h1 className="text-2xl  font-semibold">Regulasi</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {regulasiItems.map((item, index) => (
-              <Link href={item.href} key={index} className="flex flex-col gap-4">
+              <div key={index} className="flex flex-col gap-4">
                 <div className="mt-6">
                   <Badge variant="default" className="text-xs bg-amber-200/50 text-black/70">
                     {item.tipe}
                   </Badge>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <h4 className="font-bold text-lg">{item.title}</h4>
-                </div>
+                <Link href={`/file/${item.href}`} target="_blank" className="font-semibold text-xl hover:text-background">
+                  {item.title}
+                </Link>
                 <p className="text-muted-foreground text-sm">{item.desc}</p>
                 <div className="flex items-center gap-2 text-xs">
                   <h4 className="text-muted-foreground">{item.tanggal}</h4>
                   <h4 className="text-muted-foreground">{item.jam}</h4>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -187,7 +196,7 @@ const BeritaPage = () => {
             ))}
           </div>
           <div className="w-full flex justify-center items-center mt-10">
-            <Pagination  totalPages={30} />
+            <Pagination totalPages={30} />
           </div>
         </div>
       </div>

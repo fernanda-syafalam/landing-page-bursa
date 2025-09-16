@@ -21,7 +21,7 @@ export interface NavbarProps {
 const navItems = [
   { title: 'Pasar', link: 'pasar' },
   { title: 'Aset', link: 'aset' },
-  { title: 'Berita', link: 'berita' },
+  // { title: 'Berita', link: 'berita' },
   { title: 'Tentang Kami', link: 'tentang-kami' },
   { title: 'Kontak', link: 'kontak' }
 ];
