@@ -11,7 +11,7 @@ const tabs = ['Semua', 'Listing terbaru', 'Top Gainer'];
 
 // This component contains all the client-side interactive logic.
 const AsetClient = () => {
-  const { cryptoList, loading } = useCryptoList(100, 'USD');
+  const { cryptoList, loading } = useCryptoList(10, 'USD');
   const [activeTab, setActiveTab] = useState('Semua');
   const [searchTerm, setSearchTerm] = useState('');
 
