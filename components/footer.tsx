@@ -10,11 +10,11 @@ const FooterSection = () => {
     { label: 'Beranda', href: '/' },
     { label: 'Pasar', href: '/market' },
     { label: 'Aset', href: '/assets' },
-    { label: 'Anggota Bursa', href: '/members' },
-    { label: 'Regulasi', href: '/regulations' },
-    { label: 'Berita', href: '/news' },
+    // { label: 'Anggota Bursa', href: '/members' },
+    // { label: 'Regulasi', href: '/regulations' },
+    // { label: 'Berita', href: '/news' },
     { label: 'Tentang Kami', href: '/about' },
-    { label: 'Karir', href: '/career' },
+    // { label: 'Karir', href: '/career' },
     { label: 'Kontak', href: '/contact' }
   ];
 
@@ -101,7 +101,7 @@ const FooterSection = () => {
 
             <p className="flex items-center gap-2 text-sm text-white/70">
               <Phone size={18} />
-              <a href="tel:021222222">(021) 222-222</a>
+              <a href="tel:021222222">021-39704045</a>
             </p>
           </div>
         </div>
