@@ -61,7 +61,7 @@ const News = [
 const NewsSection = () => {
 
   // --- PERBAIKAN: Fungsi untuk membersihkan tag HTML sebelum memotong teks ---
-  const stripHtml = (html) => {
+  const stripHtml = (html: any) => {
     if (typeof window !== 'undefined') {
       const doc = new DOMParser().parseFromString(html, 'text/html');
       return doc.body.textContent || "";

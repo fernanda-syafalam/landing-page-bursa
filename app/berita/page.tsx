@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { SearchIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { Suspense } from 'react';
 
 const beritaHeader = [
   {
@@ -195,9 +195,11 @@ const BeritaPage = () => {
               </Link>
             ))}
           </div>
-          <div className="w-full flex justify-center items-center mt-10">
-            <Pagination totalPages={30} />
-          </div>
+          <Suspense fallback={<p>Loading content...</p>}>
+            <div className="w-full flex justify-center items-center mt-10">
+              <Pagination totalPages={30} />
+            </div>
+          </Suspense>
         </div>
       </div>
       <FooterSection />
