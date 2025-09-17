@@ -91,7 +91,7 @@ export default function AssetSection() {
         </div>
 
         {/* Market Table */}
-        <div className="lg:mt-36">
+        <div className="lg:mt-36 z-10">
           <div className="flex text-center lg:text-left justify-between items-center align-baseline">
             <div>
               <h1 className="text-3xl font-semibold">Data Pasar Terkini </h1>
@@ -110,7 +110,7 @@ export default function AssetSection() {
           </div>
         </div>
 
-        <div className="mt-10 overflow-x-auto lg:px-0">
+        <div className="relative mt-10 overflow-x-auto lg:px-0 z-10">
           <Card className="p-4 mb-4 bg-white rounded-lg lg:mx-0 w-fit lg:w-full">
             <table className="min-w-3xl lg:min-w-full text-center">
               <thead className="text-muted-foreground text-sm font-light sticky top-0 bg-white">

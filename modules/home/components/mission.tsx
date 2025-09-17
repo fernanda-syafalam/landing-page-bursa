@@ -42,15 +42,15 @@ const logos = [
 const MissionSection = () => {
   return (
     <section className=" w-full min-h-screen  py-24">
-      <div className="relative w-full lg:h-[400px] bg-no-repeat bg-center bg-cover" style={{ backgroundImage: 'url(mission-bg.png)' }}>
-        <div className=" container-custom flex justify-center items-center  flex-col  px-4 gap-6 ">
+      <div className="relative w-full lg:h-[400px] bg-no-repeat bg-center bg-cover z-20 " style={{ backgroundImage: 'url(mission-bg.png)' }}>
+        <div className="container-custom flex justify-center items-center  flex-col  px-4 gap-6 ">
           <div className="">
             <DotText text="Tugas Utama Kami" />
           </div>
           <h1 className="text-center text-3xl">
             Kami hadir untuk membangun ekosistem aset kripto yang sehat, <br /> terpercaya, dan berpihak pada kepentingan publik.
           </h1>
-          <div className="flex flex-col lg:flex-row gap-12 items-center justify-center mt-10">
+          <div className="relative z-20 flex flex-col lg:flex-row gap-12 items-center justify-center mt-10">
             {missionItems.map((item, index) => (
               <div key={index} className=" flex flex-col items-center text-center">
                 <item.icons size={36} className="mb-4 text-white px-2 py-2 bg-[#213965] rounded-full" />
@@ -67,11 +67,11 @@ const MissionSection = () => {
             }}
           ></div>
           <div
-            className="absolute -right-40 bottom-10 w-[100px] h-[100px] rounded-full z-10"
+            className="absolute -right-40 bottom-10 w-[100px] h-[100px] rounded-full -z-5"
             style={{
               backgroundColor: '#B2CCFF', // biru transparan
               boxShadow: '0 0 200px 200px #B2CCFF', // glow
-              opacity: 0.5
+              opacity: 0.3
             }}
           ></div>
         </div>

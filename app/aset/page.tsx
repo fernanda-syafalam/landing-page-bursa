@@ -14,7 +14,7 @@ const AsetPage = () => {
         {/* Hero Section */}
         <div className="relative container-custom mt-42 flex flex-col justify-center items-center gap-4 text-center">
           <div
-            className="absolute -left-40 -top-32 w-[330px] h-[330px] rounded-full z-10"
+            className="absolute -left-40 -top-32 w-[330px] h-[330px] rounded-full -z-10"
             style={{ backgroundColor: '#B2CCFF', boxShadow: '0 0 200px 200px #B2CCFF', opacity: 0.3 }}
           />
           <DotText text="Aset" />
@@ -22,6 +22,8 @@ const AsetPage = () => {
           <p className="text-lg text-muted-foreground max-w-[720px] text-center">
             Daftar ini memuat aset kripto yang telah terdaftar dan diawasi sesuai ketentuan yang berlaku di Indonesia.
           </p>
+
+ 
         </div>
 
         {/* Suspense Boundary for the Client Component */}

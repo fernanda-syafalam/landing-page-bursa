@@ -8,7 +8,7 @@ import PasarClient from '@/modules/pasar/components/pasar-table';
 // This is now the main page component. It's a Server Component.
 const PasarPage = () => {
   return (
-    <div>
+    <div className='bg-gradient-to-b from-[#F6F9FF] to-[#F6F9FF00]'>
       <Navbar variant="white" />
       <PasarHeroSection />
       

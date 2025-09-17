@@ -28,8 +28,8 @@ const prinsipItems = [
 
 const memberProfile = [
   {
-    name: 'Dwi Kurniawan',
-    desc: 'CEO, IGX',
+    name: 'Lucky Edward Tjahjana',
+    desc: 'Komisaris',
     profile: '/member/person.png'
   },
   {
@@ -38,40 +38,25 @@ const memberProfile = [
     profile: '/member/oscar.png'
   },
   {
-    name: 'Budi Santoso',
-    desc: 'CFO, IGX',
+    name: 'Aditya Bambang Rochedi',
+    desc: 'Direksi',
     profile: '/member/person.png'
   },
   {
-    name: 'Siti Rahma',
-    desc: 'CMO, IGX',
+    name: 'Doni Gunawan',
+    desc: 'Direksi',
     profile: '/member/person.png'
   },
   {
-    name: 'Andi Wijaya',
-    desc: 'COO, IGX',
-    profile: '/member/person.png'
-  },
-  {
-    name: 'Nurul Aini',
-    desc: 'Komisaris, IGX',
-    profile: '/member/person.png'
-  },
-  {
-    name: 'Adi Wibowo',
-    desc: 'Direktur Pengawasan, IGX',
-    profile: '/member/person.png'
-  },
-  {
-    name: 'Ratna Dewi',
-    desc: 'Direktur Keuangan, IGX',
+    name: 'Eka Rachmat Saputra',
+    desc: 'Direksi',
     profile: '/member/person.png'
   }
 ];
 
 const PrinsipSection = () => {
   return (
-    <section className="min-h-screen w-full bg-[linear-gradient(to_bottom,#F6F9FF00,#F0F5FF)] pb-20 lg:pb-40">
+    <section className="min-h-screen w-full bg-[linear-gradient(to_bottom,#F6F9FF00,#F0F5FF)] mt-40 pb-20 lg:pb-40">
       {/* Prinsip */}
       <div className="container-custom px-4 lg:px-0 flex gap-3 items-center text-center lg:text-left flex-col md:flex-row">
         <div className="max-w-[485px] h-full flex flex-col justify-center ">
@@ -83,8 +68,8 @@ const PrinsipSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full md:w-[683px]">
           {prinsipItems.map((item, index) => (
-            <div key={index} className="bg-[#DFE4EA] p-6 rounded-lg border border-[#DFE4EA] flex flex-col gap-2">
-              <div className="flex items-center gap-2">
+            <div key={index} className="bg-[#FAFAFA] p-6 rounded-lg border border-[#DFE4EA] flex flex-col gap-2">
+              <div className="flex items gap-2">
                 <item.icon className="h-8 w-8 text-primary" />
                 <h4 className="font-bold text-lg">{item.title}</h4>
               </div>
@@ -95,7 +80,7 @@ const PrinsipSection = () => {
       </div>
 
       {/* Anggota */}
-      <div className="my-24 px-4 lg:px-0 container-custom flex flex-col justify-center items-center gap-6">
+      <div className="mt-40 px-4 lg:px-0 container-custom flex flex-col justify-center items-center gap-6">
         <h1 className="text-2xl font-bold">Komisaris & Direksi</h1>
 
         <div className="flex gap-4 items-center justify-center w-full mt-4">
@@ -105,9 +90,9 @@ const PrinsipSection = () => {
               <img src={item.profile} alt={item.name} className="w-full h-full object-cover" />
 
               {/* Overlay Hover */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#213965E5]/40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <h4 className="text-white font-semibold text-lg">{item.name}</h4>
-                <p className="text-gray-200 text-sm">{item.desc}</p>
+              <div className="absolute inset-0 mt-auto h-1/2 bg-gradient-to-b from-transparent to-[#213965E5] flex flex-col items-center  opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h4 className="text-white font-semibold text-lg mt-auto ">{item.name}</h4>
+                <p className="text-gray-200 text-sm mb-6">{item.desc}</p>
               </div>
             </div>
           ))}
@@ -119,9 +104,9 @@ const PrinsipSection = () => {
               {/* Foto */}
               <img src={item.profile} alt={item.name} className="w-full h-full object-cover" />
 
-              <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <h4 className="text-white font-semibold text-lg">{item.name}</h4>
-                <p className="text-gray-200 text-sm">{item.desc}</p>
+              <div className="absolute inset-0 mt-auto h-1/2 bg-gradient-to-b from-transparent to-[#213965E5] flex flex-col items-center  opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h4 className="text-white font-semibold text-lg mt-auto ">{item.name}</h4>
+                <p className="text-gray-200 text-sm mb-6">{item.desc}</p>
               </div>
             </div>
           ))}

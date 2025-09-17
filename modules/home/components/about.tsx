@@ -27,7 +27,7 @@ const AboutSection = () => {
       ></div>
 
       <div
-        className="absolute -left-40 -top-32 w-[330px] h-[330px] rounded-full z-10"
+        className="absolute -left-40 -top-32 w-[330px] h-[330px] rounded-full z-5"
         style={{
           backgroundColor: '#B2CCFF', // biru transparan
           boxShadow: '0 0 200px 200px #B2CCFF', // glow
@@ -58,7 +58,7 @@ const AboutSection = () => {
             <ul className="flex flex-col gap-2">
               {list.map((item, index) => (
                 <li key={index} className="text-sm max-w-[562px] flex gap-2 items-start">
-                  <CheckCircle2 size={20} className="text-green-600 mt-1" /> {item.desc}
+                  <CheckCircle2 size={20} className="text-[#213965] " /> {item.desc}
                 </li>
               ))}
             </ul>

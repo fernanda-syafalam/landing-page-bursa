@@ -42,7 +42,7 @@ const PasarClient = () => {
   return (
     <div className="relative container-custom mt-28">
       {/* Search and Tabs */}
-      <div className="hidden lg:flex justify-between">
+      {/* <div className="hidden lg:flex justify-between">
         <div className="flex gap-4">
           {tabs.map((item, index) => (
             <button key={index} className={`text py-2.5 px-8 rounded-full ${item.active ? 'bg-[#D9E6FFE5]' : ''}`}>
@@ -56,10 +56,10 @@ const PasarClient = () => {
             <SearchIcon className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
           </div>
         </form>
-      </div>
+      </div> */}
 
       {/* Crypto Table */}
-      <div className="my-10 overflow-x-auto">
+      <div className="my-10 overflow-x-auto z-20">
         <Card className="p-4 mb-4 bg-white rounded-lg mx-4 lg:mx-0 w-fit lg:w-full">
           <table className="min-w-3xl lg:min-w-full text-center">
             <thead className="text-muted-foreground text-sm font-light sticky top-0 bg-white">
@@ -107,7 +107,7 @@ const PasarClient = () => {
       
       {/* Glow effect */}
       <div
-        className="absolute -right-40 -bottom-32 w-[80px] h-[80px] rounded-full z-10"
+        className="absolute -right-40 -bottom-32 w-[80px] h-[80px] rounded-full -z-10"
         style={{
           backgroundColor: '#B2CCFF',
           boxShadow: '0 0 150px 150px #B2CCFF',

@@ -11,7 +11,7 @@ const KontakHero = () => {
   return (
     <section className="relative min-h-screen w-full mt-40 ">
       <div
-        className="absolute -left-40 -top-32 w-[330px] h-[330px] rounded-full z-10"
+        className="absolute -left-40 -top-32 w-[330px] h-[330px] rounded-full -z-10"
         style={{
           backgroundColor: '#B2CCFF', // biru transparan
           boxShadow: '0 0 200px 200px #B2CCFF', // glow
@@ -115,7 +115,7 @@ const KontakHero = () => {
       <div className="container-custom mb-24 px-4">
         <div className="mt-10">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15863.544455559926!2d106.82046331510698!3d-6.214134695651983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3f7e1f9b5c1%3A0x61a3f7e77a3a16b!2sGedung%20Millenium%20Centennial%20Center!5e0!3m2!1sen!2sid!4v1645123335465!5m2!1sen!2sid"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3835807383666!2d106.81875377567572!3d-6.213036993774863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f531e5c7e941%3A0x43d08834f55d0450!2sMillennium%20Centennial%20Center!5e0!3m2!1sid!2sid!4v1758092412196!5m2!1sid!2sid"
             width="100%"
             height="450"
             style={{ border: 0 }}

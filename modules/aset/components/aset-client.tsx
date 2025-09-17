@@ -4,12 +4,10 @@ import React, { useState, useMemo } from 'react';
 import Pagination from '@/components/pagination';
 import { AvatarImage, AvatarFallback, Avatar } from '@/components/ui/avatar';
 import { Card } from '@/components/ui/card';
-import { SearchIcon } from 'lucide-react';
 import { useCryptoList } from '@/hooks/useCryptoList';
 
 const tabs = ['Semua', 'Listing terbaru', 'Top Gainer'];
 
-// This component contains all the client-side interactive logic.
 const AsetClient = () => {
   const { cryptoList, loading } = useCryptoList(10, 'USD');
   const [activeTab, setActiveTab] = useState('Semua');
@@ -18,16 +16,13 @@ const AsetClient = () => {
   const filteredCryptoList = useMemo(() => {
     if (!searchTerm) return cryptoList;
     return cryptoList.filter(
-      (coin) =>
-        coin.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        coin.symbol.toLowerCase().includes(searchTerm.toLowerCase())
+      coin => coin.name.toLowerCase().includes(searchTerm.toLowerCase()) || coin.symbol.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [cryptoList, searchTerm]);
 
   return (
-    <div className="container-custom mt-28">
-      <div className="hidden lg:flex justify-between">
-        {/* Tabs with onClick handler */}
+    <div className="relative container-custom mt-28">
+      {/* <div className="hidden lg:flex justify-between">
         <div className="flex gap-4">
           {tabs.map((tab) => (
             <button
@@ -42,7 +37,6 @@ const AsetClient = () => {
           ))}
         </div>
 
-        {/* Search form with onChange handler */}
         <form className="flex items-center gap-2">
           <div className="relative w-72">
             <input
@@ -55,10 +49,10 @@ const AsetClient = () => {
             <SearchIcon className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
           </div>
         </form>
-      </div>
+      </div> */}
 
       {/* Table Section */}
-      <div className="my-10 mb-24 mx-4 overflow-x-auto pb-4">
+      <div className=" my-10 mb-24 mx-4 overflow-x-auto pb-4">
         <Card className="p-4 bg-white rounded-lg mb-12 w-fit lg:w-full">
           {loading ? (
             <TableSkeleton />
@@ -72,7 +66,7 @@ const AsetClient = () => {
                 </tr>
               </thead>
               <tbody>
-                {filteredCryptoList.map((coin) => (
+                {filteredCryptoList.map(coin => (
                   <tr key={coin.id} className="hover:bg-[#F6F9FF]">
                     <td className="px-4 py-4 flex items-center gap-3 justify-start">
                       <Avatar className="w-12 h-12">
@@ -94,8 +88,17 @@ const AsetClient = () => {
             </table>
           )}
         </Card>
-        <Pagination totalPages={Math.ceil(filteredCryptoList.length / 10)} />
+
+        <Pagination totalPages={21} />
       </div>
+      <div
+        className="absolute -right-40 -bottom-35 w-[80px] h-[80px] rounded-full -z-10"
+        style={{
+          backgroundColor: '#B2CCFF',
+          boxShadow: '0 0 150px 150px #B2CCFF',
+          opacity: 0.4
+        }}
+      ></div>
     </div>
   );
 };

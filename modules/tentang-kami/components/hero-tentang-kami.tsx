@@ -18,7 +18,7 @@ const HeroTentangKami = () => {
     <section className="w-full min-h-screen">
       <div className="relative container-custom mt-40 px-4 lg:px-0 flex flex-col gap-4 justify-center items-center text-center">
         <div
-          className="absolute -left-40 -top-32 w-[330px] h-[330px] rounded-full z-10"
+          className="absolute -left-40 -top-32 w-[330px] h-[330px] rounded-full -z-10"
           style={{
             backgroundColor: '#B2CCFF', // biru transparan
             boxShadow: '0 0 200px 200px #B2CCFF', // glow
