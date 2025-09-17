@@ -3,6 +3,7 @@ import React from 'react';
 import { BackgroundRippleEffect } from '@/components/ui/background-ripple-effect';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export function HeroSection() {
   return (
@@ -20,10 +21,15 @@ export function HeroSection() {
           </p>
 
           <div className="hidden lg:flex gap-4 mt-6">
-            <Button variant="default" className="bg-white text-black">
-              Pelajari Peran Kami
-            </Button>
-            <Button variant="outline">Lihat Statistik Pasar</Button>
+            <Link href="#tentang-kami">
+              <Button variant="default" className="bg-white text-black hover:bg-[#F1F5F9] hover:border-white ">
+                Pelajari Peran Kami
+              </Button>
+            </Link>
+
+            <Link href="#statistik-pasar">
+              <Button variant="outline" className='hover:bg-[#FFFFFF26] hover:text-white'>Lihat Statistik Pasar</Button>
+            </Link>
           </div>
 
           <div className="mt-10 lg:mt-24 mx-auto lg:mx-0  flex lg:block flex-col items-center justify-center ">
@@ -34,7 +40,7 @@ export function HeroSection() {
             <Button variant="default" className="bg-white text-black">
               Pelajari Peran Kami
             </Button>
-            <Button variant="outline">Lihat Statistik Pasar</Button>
+            <Button variant="outline"> Lihat Statistik Pasar</Button>
           </div>
         </div>
 

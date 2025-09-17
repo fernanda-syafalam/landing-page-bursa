@@ -139,3 +139,7 @@
     @apply mx-auto w-full max-w-[1200px];
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}

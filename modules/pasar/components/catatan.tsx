@@ -3,11 +3,11 @@ import React from 'react';
 
 const listCatatan = [
   'Data Nilai Transaksi (Rp), Volume, dan Frekuensi diperoleh dari laporan anggota IGX.',
-  'Harga yang ditampilkan merupakan harga penutupan acuan harian pada pukul 23:59 WIB dan bukan harga acuan perdagangan real-time.',
+  'Harga yang ditampilkan merupakan harga penutupan acuan harian pada pukul 23:59 WIB dan bukan harga acuan perdagangan real-time.',
   'Data hari Jumat, Sabtu, Minggu, hari libur nasional, dan hari cuti bersama akan ditampilkan pada hari kerja berikutnya.',
-  'Terakhir diperbarui pada tanggal 29 Agustus 2025 pukul 08.19 WIB.',
-  'Seluruh informasi yang ditampilkan semata-mata sebagai sarana penyebaran informasi perdagangan aset kripto. ',
-  'Penggunaan informasi tersebut oleh pengguna sepenuhnya merupakan risiko dan tanggung jawab pengguna.'
+  'Informasi waktu pembaruan data akan ditampilkan otomatis pada versi sistem berikutnya.',
+  'Seluruh informasi yang ditampilkan semata-mata sebagai sarana penyebaran informasi perdagangan aset kripto.',
+  'Penggunaan informasi tersebut sepenuhnya merupakan risiko dan tanggung jawab pengguna.',
 ];
 
 const CatatanSection = () => {

@@ -43,7 +43,7 @@ export default function AssetSection() {
         </div>
 
         {/* Latest 3 */}
-        <div className="flex flex-col lg:flex-row flex-nowrap justify-center gap-5 mt-10 col-span-12">
+        <div  className="flex flex-col lg:flex-row flex-nowrap justify-center gap-5 mt-10 col-span-12">
           {latest.map((item, index) => (
             <div
               key={index}
@@ -84,16 +84,16 @@ export default function AssetSection() {
         <div className="w-full flex justify-center my-12 lg:hidden">
           <Button
             variant="outline"
-            className=" bg-white text-black border-black hover:bg-background px-5 hover:text-white"
+            className=" bg-white text-background border-background hover:bg-background px-5 hover:text-white"
           >
             Lihat Semua Aset
           </Button>
         </div>
 
         {/* Market Table */}
-        <div className="lg:mt-36 z-10">
+        <div id="statistik-pasar"  className="lg:mt-80 z-10 scroll-m-36">
           <div className="flex text-center lg:text-left justify-between items-center align-baseline">
-            <div>
+            <div  > 
               <h1 className="text-3xl font-semibold">Data Pasar Terkini </h1>
               <p className="text-muted-foreground mt-4">
                 Perkembangan harga dan data kripto terkini yang diperbarui
@@ -103,7 +103,7 @@ export default function AssetSection() {
 
             <Button
               variant="outline"
-              className="hidden lg:block bg-white text-black border-black hover:bg-background px-6 hover:text-white"
+              className="hidden lg:block bg-white text-background font-semibold border-background hover:bg-background px-6 hover:text-white"
             >
               Selengkapnya
             </Button>

@@ -17,7 +17,7 @@ const list = [
 
 const AboutSection = () => {
   return (
-    <section className="relative w-full min-h-screen lg:py-24">
+    <section id="tentang-kami" className="relative w-full min-h-screen lg:py-24">
       <div
         className="absolute inset-0 bg-no-repeat bg-cover -left-1/2 top-12 z-10"
         style={{
